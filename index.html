@@ -3,141 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sahra Ourari - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <title>Portfolio - Sahra</title>
   <style>
     body {
-      font-family: 'Lora', serif;
+      margin: 0;
+      font-family: "Georgia", serif;
       background-color: #fdfaf6;
-      color: #3d2c2e;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
+      color: #333;
     }
-
     header {
+      height: 100vh;
+      background: url('https://picsum.photos/1600/900?grayscale') no-repeat center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      background: linear-gradient(to right, #f5d9d5, #fdf6f0);
-      color: #3d2c2e;
-      padding: 3rem 1rem;
-      border-bottom: 3px solid #d4b59e;
+      color: white;
+      background-attachment: fixed;
     }
-
     header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      margin: 0;
-      color: #3d2c2e;
+      font-size: 3em;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
     }
-
     header p {
-      font-size: 1.2rem;
-      font-style: italic;
-      margin-top: 0.5rem;
+      font-size: 1.2em;
+      margin-top: 10px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
     }
-
-    section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background: #fffdfb;
-      border: 2px solid #d4b59e;
-      border-radius: 12px;
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #6a4c4c;
-      border-bottom: 2px dashed #d4b59e;
-      display: inline-block;
-      padding-bottom: 0.2rem;
-    }
-
-    a {
-      color: #a76d6d;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    a:hover {
-      color: #6a4c4c;
-      text-decoration: underline;
-    }
-
-    .contact-links {
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-
-    .contact-links a {
-      background: #f5d9d5;
-      padding: 0.7rem 1.2rem;
-      border-radius: 25px;
-      border: 1px solid #d4b59e;
-      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
-      transition: 0.3s;
+    nav a {
+      text-decoration: none;
+      color: #333;
+      padding: 15px;
+      font-weight: bold;
     }
-
-    .contact-links a:hover {
-      background: #d4b59e;
-      color: #fff;
+    nav a:hover {
+      color: #a0522d;
     }
-
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #a0522d;
+      display: inline-block;
+    }
     footer {
       text-align: center;
-      font-size: 0.9rem;
-      padding: 1rem;
-      margin-top: 2rem;
-      background: #f5d9d5;
-      border-top: 2px solid #d4b59e;
+      padding: 30px;
+      background: #333;
+      color: white;
     }
   </style>
 </head>
 <body>
+
+  <nav>
+    <a href="#about">À propos</a>
+    <a href="#projects">Projets</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
   <header>
-    <h1>Sahra Ourari</h1>
-    <p>Data Analyst | Passionnée de données et de visualisation</p>
+    <h1>Sahra Bloom</h1>
+    <p>Data Analyst passionnée ✨ | Élégance & Vintage</p>
   </header>
 
-  <section>
+  <section id="about">
     <h2>À propos</h2>
     <p>
-      Jeune Data Analyst passionnée par l’analyse et l’exploitation des données, 
-      avec une première expérience dans le traitement et la visualisation via Excel. 
-      Actuellement en montée en compétences sur Power BI, SQL et Python, 
-      je souhaite mettre mes connaissances au service d’une entreprise dynamique, 
-      notamment dans les secteurs industriels et agroalimentaires.
+      Je suis une jeune Data Analyst passionnée par l'analyse et la visualisation des données. 
+      J’aime mélanger rigueur technique et élégance dans mes projets.
     </p>
   </section>
 
-  <section>
+  <section id="projects">
     <h2>Projets</h2>
-    <ul>
-      <li><strong>Analyse de production industrielle</strong> – Tableau de bord Power BI simulant la performance d'une usine.</li>
-      <li><strong>Nettoyage de données clients</strong> – Utilisation de Python (Pandas) pour corriger et enrichir une base CRM.</li>
-      <li><strong>Visualisation Excel avancée</strong> – KPI et reporting interactif pour suivi de ventes.</li>
-    </ul>
+    <p>
+      Bientôt disponible : mes projets de Data Analysis en Power BI, Python et SQL 📊.
+    </p>
   </section>
 
-  <section>
+  <section id="contact">
     <h2>Contact</h2>
-    <div class="contact-links">
-      <a href="mailto:ourari@estin.dz">ourari@estin.dz</a>
-      <a href="mailto:sahraourari88@gmail.com">sahraourari88@gmail.com</a>
-      <a href="https://www.facebook.com/ourari.sahra/" target="_blank">Facebook</a>
-      <a href="https://www.linkedin.com/in/sahra-ourari-3b628a303" target="_blank">LinkedIn</a>
-      <a href="https://github.com/saku-bloom" target="_blank">GitHub</a>
-    </div>
+    <p>📧 Email : <a href="mailto:tonemail@gmail.com">tonemail@gmail.com</a></p>
+    <p>💼 LinkedIn : <a href="#">Ton profil</a></p>
   </section>
 
   <footer>
-    © 2025 - Portfolio de Sahra Ourari | Design vintage chic ✨
+    © 2025 - Sahra Bloom | Portfolio Vintage
   </footer>
+
 </body>
 </html>
