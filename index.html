@@ -165,49 +165,21 @@
         <p><strong>Phone:</strong> +213779406611</p>
       </div>
 
-      <!-- Follow Me (Icons SVG) -->
+      <!-- Follow Me (Icons) -->
       <div style="min-width:250px; margin-bottom:20px; text-align:left;">
         <h5>Follow Me</h5>
         <div class="follow-icons" style="display:flex; gap:15px; margin-top:10px;">
-          <!-- LinkedIn -->
-          <a href="https://www.linkedin.com/in/sahra-ourari-3b628a303" target="_blank" style="width:45px;height:45px;border-radius:50%;background:#0077B5;display:flex;align-items:center;justify-content:center;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-              <path d="M19 0h-14c-2.762 0-5 2.238-5 5v14c0 2.762 2.238 5 5 5h14c2.762 0 5-2.238 
-              5-5v-14c0-2.762-2.238-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.3c-.966 
-              0-1.75-.785-1.75-1.75s.784-1.75 1.75-1.75 1.75.785 1.75 
-              1.75-.784 1.75-1.75 1.75zm13.5 10.3h-3v-4.5c0-1.07-.93-2-2-2s-2 
-              .93-2 2v4.5h-3v-9h3v1.25c.527-.797 1.463-1.25 2.5-1.25 1.93 0 
-              3.5 1.57 3.5 3.5v5.5z"/>
-            </svg>
+          <a href="https://www.linkedin.com/in/sahra-ourari-3b628a303" target="_blank" class="social-circle linkedin">
+            <i class="fab fa-linkedin"></i>
           </a>
-
-          <!-- WhatsApp -->
-          <a href="https://wa.me/213779406611" target="_blank" style="width:45px;height:45px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;">
-            <svg width="24" height="24" viewBox="0 0 448 512" fill="white">
-              <path d="M380.9 97.1C339-5.6 253.2-13.3 178.6 32.4c-74.5 
-              45.7-96.9 136.1-57.3 208.7L7 505.2l171.8-57.4c66.3 
-              33.9 148.1 13.1 191.6-51.3 43.5-64.3 41.8-151.1-10.5-199.4z"/>
-            </svg>
+          <a href="https://wa.me/213779406611" target="_blank" class="social-circle whatsapp">
+            <i class="fab fa-whatsapp"></i>
           </a>
-
-          <!-- Facebook -->
-          <a href="https://www.facebook.com/ourari.sahra/" target="_blank" style="width:45px;height:45px;border-radius:50%;background:#3b5998;display:flex;align-items:center;justify-content:center;">
-            <svg width="24" height="24" viewBox="0 0 320 512" fill="white">
-              <path d="M279.14 288l14.22-92.66h-88.91V117.1c0-25.35 
-              12.42-50.06 52.24-50.06H293V6.26S259.36 0 225.36 0c-73.22 
-              0-121.05 44.38-121.05 124.72V195.3H22.89V288h81.42v224h100.2V288z"/>
-            </svg>
+          <a href="https://www.facebook.com/ourari.sahra/" target="_blank" class="social-circle facebook">
+            <i class="fab fa-facebook"></i>
           </a>
-
-          <!-- GitHub -->
-          <a href="https://github.com/saku-bloom" target="_blank" style="width:45px;height:45px;border-radius:50%;background:#333;display:flex;align-items:center;justify-content:center;">
-            <svg width="24" height="24" viewBox="0 0 496 512" fill="white">
-              <path d="M165.9 397.4c0 2-2.3 3.7-5.2 3.7-2.9 
-              0-5.2-1.6-5.2-3.7 0-2 2.3-3.7 
-              5.2-3.7 2.9 0 5.2 1.6 5.2 3.7zm-29.2-10.7c-.7 
-              1.5-2.7 2-4.3 1.1-1.6-.9-2.2-2.9-1.5-4.4.7-1.5 
-              2.7-2 4.3-1.1 1.6.9 2.2 2.9 1.5 4.4z"/>
-            </svg>
+          <a href="https://github.com/saku-bloom" target="_blank" class="social-circle github">
+            <i class="fab fa-github"></i>
           </a>
         </div>
       </div>
@@ -216,6 +188,26 @@
   </div>
 </section>
 
+<style>
+.social-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.5em;
+  transition: transform 0.3s;
+}
+.social-circle:hover { transform: scale(1.2); }
+
+/* Couleurs spécifiques */
+.linkedin { background:#0077B5; }
+.whatsapp { background:#25D366; }
+.facebook { background:#3b5998; }
+.github { background:#333; }
+</style>
 
 <style>
 /* Follow Me Icons CSS */
