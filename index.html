@@ -157,8 +157,8 @@
 
   <section class="hero" id="home">
     <img id="heroPhoto" src="photo.jpg" alt="Photo de Sahra">
-    <h1><span id="typed"></span><span class="cursor">|</span></h1>
-    <h2>Data Analyst | Business Intelligence</h2>
+     <h1>Hi, I'm Sahra Ourari</h1>
+     <h2><span id="typed"></span></h2>
     <p>Passionnée par l’analyse et la valorisation des données, je transforme les chiffres en informations stratégiques pour améliorer la performance et accompagner la prise de décision.</p>
     <div>
       <a href="sahra_ourari_CV.pdf" class="btn btn-custom btn-primary-custom" target="_blank">📄 Voir mon CV</a>
@@ -437,38 +437,36 @@ backToTop.addEventListener("click", () => {
 });
 
 
+  // Effet typing multi-mots
+  const typedText = document.getElementById("typed");
+  const words = ["Data Analyst", "Business Intelligence", "Machine Learning Enthusiast"];
+  let wordIndex = 0;
+  let charIndex = 0;
+  let currentWord = "";
+  let isDeleting = false;
 
-// Effet typing multi-mots
-const typedText = document.getElementById("typed");
-const words = ["Data Analyst", "Business Intelligence", "Machine Learning Enthusiast"];
-let wordIndex = 0;
-let charIndex = 0;
-let currentWord = "";
-let isDeleting = false;
+  function typeEffect() {
+    currentWord = words[wordIndex];
+    
+    if (isDeleting) {
+      typedText.textContent = currentWord.substring(0, charIndex--);
+    } else {
+      typedText.textContent = currentWord.substring(0, charIndex++);
+    }
 
-function typeEffect() {
-  currentWord = words[wordIndex];
-  
-  if (isDeleting) {
-    typedText.textContent = currentWord.substring(0, charIndex--);
-  } else {
-    typedText.textContent = currentWord.substring(0, charIndex++);
+    if (!isDeleting && charIndex === currentWord.length) {
+      isDeleting = true;
+      setTimeout(typeEffect, 1000); // pause avant effacement
+      return;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % words.length; // mot suivant
+    }
+
+    setTimeout(typeEffect, isDeleting ? 80 : 120);
   }
 
-  if (!isDeleting && charIndex === currentWord.length) {
-    isDeleting = true;
-    setTimeout(typeEffect, 1000); // pause avant effacement
-    return;
-  } else if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    wordIndex = (wordIndex + 1) % words.length; // mot suivant
-  }
-
-  setTimeout(typeEffect, isDeleting ? 80 : 120);
-}
-
-typeEffect();
-
+  typeEffect();
 
   </script>
 </body>
