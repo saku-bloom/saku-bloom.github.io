@@ -87,6 +87,7 @@ section h3::after { content: ""; display: block; width: 60px; height: 3px; backg
 /* ==================== SKILLS CIRCLES ==================== */
 .skills-container {
   display:flex; flex-wrap:wrap; justify-content:center; gap:40px;
+  flex: 0 1 150px;
 }
 .skill-circle {
   text-align:center;
