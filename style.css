@@ -86,22 +86,34 @@ section h3::after { content: ""; display: block; width: 60px; height: 3px; backg
 
 /* ==================== SKILLS CIRCLES ==================== */
 .skills-container {
-  display:flex; flex-wrap:wrap; justify-content:center; gap:40px;
-  flex: 0 1 150px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
 }
+
+.skill-item {
+  text-align: center; /* pour le label en dessous du cercle */
+}
+
 .skill-circle {
-  text-align:center;
-  width:130px; height:130px;
-  border-radius:50%;
-  border:8px solid #a45c6b;
-  display:flex; align-items:center; justify-content:center;
-  font-size:1.2rem;
-  color:#a45c6b;
-  gap: 60px;
-  font-weight:bold;
-  flex-direction:column;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 8px solid #a45c6b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #a45c6b;
 }
-.skill-circle p { margin-top:10px; font-weight:500; }
+
+.skill-item p {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
 
 /* ==================== CONTACT ==================== */
 .contact-container {
