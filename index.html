@@ -335,6 +335,19 @@
   transform: scale(1.1);
 }
 
+  /* Curseur effet typing */
+.cursor {
+  display: inline-block;
+  background-color: transparent;
+  animation: blink 0.7s infinite;
+  font-weight: bold;
+  color: #a45c6b;
+}
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
 </style>
 
 
@@ -422,6 +435,40 @@ window.onscroll = function() {
 backToTop.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+
+
+// Effet typing multi-mots
+const typedText = document.getElementById("typed");
+const words = ["Data Analyst", "Business Intelligence", "Machine Learning Enthusiast"];
+let wordIndex = 0;
+let charIndex = 0;
+let currentWord = "";
+let isDeleting = false;
+
+function typeEffect() {
+  currentWord = words[wordIndex];
+  
+  if (isDeleting) {
+    typedText.textContent = currentWord.substring(0, charIndex--);
+  } else {
+    typedText.textContent = currentWord.substring(0, charIndex++);
+  }
+
+  if (!isDeleting && charIndex === currentWord.length) {
+    isDeleting = true;
+    setTimeout(typeEffect, 1000); // pause avant effacement
+    return;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    wordIndex = (wordIndex + 1) % words.length; // mot suivant
+  }
+
+  setTimeout(typeEffect, isDeleting ? 80 : 120);
+}
+
+typeEffect();
+
 
   </script>
 </body>
