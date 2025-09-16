@@ -85,6 +85,27 @@ section h3::after { content: ""; display: block; width: 60px; height: 3px; backg
 @media (max-width: 600px) { .hero { padding: 80px 10px; } .hero img { width: 120px; height: 120px; } .petal { font-size: 20px; } }
 
 /* ==================== SKILLS CIRCLES ==================== */
+/* Section Skills */
+#skills {
+  padding: 60px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+#skills h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#skills p {
+  max-width: 800px;
+  margin: auto 0 40px;
+  color: #555;
+  text-align: center;
+}
+
+/* Skills container */
 .skills-container {
   display: flex;
   flex-wrap: wrap;
@@ -92,10 +113,12 @@ section h3::after { content: ""; display: block; width: 60px; height: 3px; backg
   gap: 40px;
 }
 
+/* Each skill item */
 .skill-item {
-  text-align: center; /* pour le label en dessous du cercle */
+  text-align: center;
 }
 
+/* Skill circle */
 .skill-circle {
   width: 130px;
   height: 130px;
@@ -109,9 +132,11 @@ section h3::after { content: ""; display: block; width: 60px; height: 3px; backg
   color: #a45c6b;
 }
 
+/* Skill label */
 .skill-item p {
   margin-top: 10px;
   font-weight: 500;
+  color: #333;
 }
 
 
