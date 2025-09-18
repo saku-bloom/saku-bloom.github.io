@@ -1,12 +1,24 @@
 
 /* ==================== GLOBAL STYLES ==================== */
 
-body { font-family: 'Raleway', sans-serif; background: linear-gradient(135deg, #f9e0e7, #fdf6ec); 
-      color: #4a3c32; 
-      scroll-behavior: smooth;
-      overflow-x: hidden; } 
-body.dark-mode { background: #121212; color: #eee; }
+/* Titres élégants et vintage */
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  color: #a45c6b; /* Rose élégant */
+  letter-spacing: 0.5px;
+}
 
+/* Paragraphes & textes généraux */
+p, a, li, span, button {
+  font-family: 'Raleway', sans-serif;
+}
+
+/* Option : rendre le h1 plus princier */
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.3;
+}
 /* ==================== DARK MODE TOGGLE ==================== */
 .dark-toggle {
   position: fixed;
