@@ -114,28 +114,3 @@ typeEffect();
 
 
 
-document.querySelectorAll('.social-icon').forEach(icon => {
-  icon.addEventListener('mouseenter', () => {
-    for (let i = 0; i < 5; i++) {
-      createPetalFromIcon(icon);
-    }
-  });
-});
-
-function createPetalFromIcon(icon) {
-  const petal = document.createElement('div');
-  petal.classList.add('petal', 'from-icon'); // ajoute une classe spéciale
-
-  const rect = icon.getBoundingClientRect();
-  petal.style.left = rect.left + rect.width / 2 + (Math.random() * 20 - 10) + 'px';
-  petal.style.top = rect.top + window.scrollY + 'px';
-
-  document.body.appendChild(petal);
-
-  // Supprimer après animation
-  setTimeout(() => {
-    petal.remove();
-  }, 2000);
-}
-
-
