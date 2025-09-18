@@ -113,13 +113,23 @@ function typeEffect() {
 typeEffect();
 
 
-// ==================== MAILBOX TOGGLE ====================
+// ==================== MAILBOX TOGGLE + MAGIC EFFECT ====================
 const mailboxBtn = document.getElementById("mailboxBtn");
 const mailboxForm = document.getElementById("mailboxForm");
 
 if (mailboxBtn && mailboxForm) {
   mailboxBtn.addEventListener("click", () => {
-    mailboxForm.classList.toggle("show"); // Active / désactive l’animation
+    mailboxForm.classList.toggle("show");
+
+    // Ajout des étincelles magiques ✨
+    const spark = document.createElement("span");
+    spark.classList.add("magic-spark");
+    mailboxBtn.appendChild(spark);
+
+    // Supprime après animation
+    setTimeout(() => {
+      spark.remove();
+    }, 1200);
   });
 }
 
