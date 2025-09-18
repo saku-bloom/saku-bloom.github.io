@@ -69,28 +69,6 @@ body.dark-mode {
 
 
 
-/*==================== Effet pétales ====================*/
-.petal.from-icon {
-  position: absolute;
-  font-size: 20px;
-  animation: fallFromIcon 2s linear forwards;
-  pointer-events: none;
-}
-
-@keyframes fallFromIcon {
-  0% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(80px) scale(0.6);
-  }
-}
-
-
-
-
 
 /* ==================== SECTIONS ==================== */
 section { padding: 80px 20px; opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
