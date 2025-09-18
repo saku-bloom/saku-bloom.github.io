@@ -119,11 +119,7 @@ const mailboxForm = document.getElementById("mailboxForm");
 
 if (mailboxBtn && mailboxForm) {
   mailboxBtn.addEventListener("click", () => {
-    if (mailboxForm.style.display === "block") {
-      mailboxForm.style.display = "none";
-    } else {
-      mailboxForm.style.display = "block";
-    }
+    mailboxForm.classList.toggle("show"); // Active / désactive l’animation
   });
 }
 
