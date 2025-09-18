@@ -66,6 +66,29 @@ body.dark-mode {
 .social a { margin: 0 12px; font-size: 1.5em; color: #a45c6b; transition: transform 0.3s, color 0.3s; }
 .social a:hover { color: #4a3c32; transform: scale(1.2); }
 
+
+
+
+/*==================== Effet pétales ====================*/
+.petal {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: pink;
+  border-radius: 50% 50% 50% 50%;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: fall 2s linear forwards;
+}
+
+@keyframes fall {
+  0% { transform: translateY(0) scale(1); opacity: 0.9; }
+  100% { transform: translateY(60px) scale(0.6); opacity: 0; }
+}
+
+
+
+
 /* ==================== SECTIONS ==================== */
 section { padding: 80px 20px; opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
 section.visible { opacity: 1; transform: translateY(0); }
