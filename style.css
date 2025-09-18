@@ -179,69 +179,98 @@ section h3::after { content: ""; display: block; width: 60px; height: 3px; backg
 
 
 
-/* Mailbox */
+/* ==================== MAILBOX MAGIQUE ==================== */
 .mailbox-wrapper {
-  position: relative;
   text-align: center;
   margin-top: 2rem;
+  position: relative;
 }
 
 .mailbox-icon {
   font-size: 3rem;
   cursor: pointer;
+  display: inline-block;
+  position: relative;
   transition: transform 0.3s ease;
 }
 
 .mailbox-icon:hover {
-  transform: scale(1.2) rotate(-10deg);
+  transform: scale(1.2) rotate(-5deg);
 }
 
+/* ✨ Petites étincelles */
+.mailbox-icon .sparkles::before,
+.mailbox-icon .sparkles::after {
+  content: "✨";
+  position: absolute;
+  font-size: 1.2rem;
+  animation: sparkle 1.5s infinite ease-in-out;
+}
+
+.mailbox-icon .sparkles::before {
+  top: -10px;
+  left: -15px;
+}
+
+.mailbox-icon .sparkles::after {
+  bottom: -10px;
+  right: -15px;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.2) rotate(20deg); }
+}
+
+/* 📩 Le formulaire caché */
 .mailbox-form {
   display: none;
-  margin-top: 1rem;
-  background: #fff;
-  border: 2px solid #e4c4d4;
-  border-radius: 15px;
-  padding: 1rem;
-  max-width: 350px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: #fff7fb;
+  border: 2px solid #f5b8d0;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 182, 193, 0.4);
   animation: fadeIn 0.6s ease forwards;
 }
 
+.mailbox-form.show {
+  display: block;
+}
+
 .mailbox-form h4 {
-  margin-bottom: 0.5rem;
-  color: #4a3c32;
-  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+  color: #d63384;
+  font-family: 'Raleway', sans-serif;
 }
 
 .mailbox-form input,
 .mailbox-form textarea {
   width: 100%;
-  margin: 0.4rem 0;
-  padding: 0.6rem;
-  border: 1px solid #d8b6c2;
+  margin: 0.5rem 0;
+  padding: 0.8rem;
+  border: 1px solid #f5b8d0;
   border-radius: 8px;
   font-family: 'Raleway', sans-serif;
 }
 
 .mailbox-form button {
-  background: #f4b6c2;
+  margin-top: 1rem;
+  padding: 0.8rem 1.2rem;
+  background: #d63384;
   color: white;
-  padding: 0.6rem 1rem;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background 0.3s ease, transform 0.2s;
 }
 
 .mailbox-form button:hover {
-  background: #e89bb0;
+  background: #c2185b;
+  transform: scale(1.05);
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
