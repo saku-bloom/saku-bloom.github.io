@@ -152,11 +152,7 @@ section h3::after { content: ""; display: block; width: 60px; height: 3px; backg
   transform: scale(1.1);
 }
 
-/* Couleur spéciale WhatsApp */
-.follow-icons a.whatsapp {
-  background: #25D366;
-  color: white;
-}
+
 
 /* ==================== BACK TO TOP ==================== */
 #backToTop {
