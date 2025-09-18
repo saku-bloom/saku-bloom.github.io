@@ -117,16 +117,15 @@ typeEffect();
 document.querySelectorAll('.social-icon').forEach(icon => {
   icon.addEventListener('mouseenter', () => {
     for (let i = 0; i < 5; i++) {
-      createPetal(icon);
+      createPetalFromIcon(icon);
     }
   });
 });
 
-function createPetal(icon) {
+function createPetalFromIcon(icon) {
   const petal = document.createElement('div');
-  petal.classList.add('petal');
+  petal.classList.add('petal', 'from-icon'); // ajoute une classe spéciale
 
-  // Positionner la pétale près de l'icône
   const rect = icon.getBoundingClientRect();
   petal.style.left = rect.left + rect.width / 2 + (Math.random() * 20 - 10) + 'px';
   petal.style.top = rect.top + window.scrollY + 'px';
@@ -138,4 +137,5 @@ function createPetal(icon) {
     petal.remove();
   }, 2000);
 }
+
 
