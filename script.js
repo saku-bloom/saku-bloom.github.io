@@ -113,4 +113,19 @@ function typeEffect() {
 typeEffect();
 
 
+// ==================== MAILBOX TOGGLE ====================
+const mailboxBtn = document.getElementById("mailboxBtn");
+const mailboxForm = document.getElementById("mailboxForm");
+
+if (mailboxBtn && mailboxForm) {
+  mailboxBtn.addEventListener("click", () => {
+    if (mailboxForm.style.display === "block") {
+      mailboxForm.style.display = "none";
+    } else {
+      mailboxForm.style.display = "block";
+    }
+  });
+}
+
+
 
