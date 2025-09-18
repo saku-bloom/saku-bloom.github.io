@@ -176,3 +176,72 @@ section h3::after { content: ""; display: block; width: 60px; height: 3px; backg
   z-index: 1000;
 }
 #backToTop:hover { background-color: #d48a96; transform: scale(1.1); }
+
+
+
+/* Mailbox */
+.mailbox-wrapper {
+  position: relative;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.mailbox-icon {
+  font-size: 3rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.mailbox-icon:hover {
+  transform: scale(1.2) rotate(-10deg);
+}
+
+.mailbox-form {
+  display: none;
+  margin-top: 1rem;
+  background: #fff;
+  border: 2px solid #e4c4d4;
+  border-radius: 15px;
+  padding: 1rem;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.mailbox-form h4 {
+  margin-bottom: 0.5rem;
+  color: #4a3c32;
+  font-family: 'Playfair Display', serif;
+}
+
+.mailbox-form input,
+.mailbox-form textarea {
+  width: 100%;
+  margin: 0.4rem 0;
+  padding: 0.6rem;
+  border: 1px solid #d8b6c2;
+  border-radius: 8px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.mailbox-form button {
+  background: #f4b6c2;
+  color: white;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.mailbox-form button:hover {
+  background: #e89bb0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
