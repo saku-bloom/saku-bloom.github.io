@@ -164,8 +164,8 @@ section h3::after { content: ""; display: block; width: 60px; height: 3px; backg
   bottom: 20px;
   right: 20px;
   display: none;
-  width: 40px;             /* largeur */
-  height: 40px;            /* hauteur = largeur */
+  width: 50px;             /* largeur */
+  height: 50px;            /* hauteur = largeur */
   background-color: #f39ac7;
   color: white;
   border: none;
