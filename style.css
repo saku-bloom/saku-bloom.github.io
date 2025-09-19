@@ -70,11 +70,47 @@ body.dark-mode {
 
 
 
-/* ==================== SECTIONS ==================== */
-section { padding: 80px 20px; opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
-section.visible { opacity: 1; transform: translateY(0); }
-section h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 30px; color: #a45c6b; text-align: center; }
-section h3::after { content: ""; display: block; width: 60px; height: 3px; background: #d48a96; margin: 12px auto 0; border-radius: 2px; }
+/* ==================== SECTIONS STYLE ==================== */
+section {
+  padding: 80px 20px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+  background: #fffafc; /* léger fond parchemin rosé */
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(164, 92, 107, 0.15); /* ombre douce rosée */
+  margin: 40px auto;
+  max-width: 1000px; /* centré avec largeur limitée */
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: #a45c6b;
+  text-align: center;
+  position: relative;
+}
+
+section h3::after {
+  content: "🌸"; /* petite fleur élégante */
+  display: block;
+  font-size: 1.5rem;
+  margin: 12px auto 0;
+  color: #d48a96;
+  animation: sparkle 2s infinite ease-in-out;
+}
+
+/* effet subtil qui rend vivant */
+@keyframes sparkle {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
 
 /* ==================== CURSOR TYPING ==================== */
 .cursor { display: inline-block; margin-left: 6px; color: #a45c6b; font-weight: 700; opacity: 1; animation: blink 1s steps(1) infinite; }
