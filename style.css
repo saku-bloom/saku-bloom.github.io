@@ -71,16 +71,15 @@ body.dark-mode {
 
 
 /* ==================== SECTIONS STYLE ==================== */
+/* ==================== SECTIONS STYLE ==================== */
 section {
   padding: 80px 20px;
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease-out;
-  background: #fffafc; /* léger fond parchemin rosé */
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(164, 92, 107, 0.15); /* ombre douce rosée */
-  margin: 40px auto;
-  max-width: 1000px; /* centré avec largeur limitée */
+  background: transparent; /* pas de fond, reste fluide */
+  margin: 60px auto;
+  max-width: 1000px; /* largeur élégante */
 }
 
 section.visible {
@@ -91,26 +90,30 @@ section.visible {
 section h3 {
   font-family: 'Playfair Display', serif;
   font-size: 2.2rem;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   color: #a45c6b;
   text-align: center;
+  letter-spacing: 1px; /* plus raffiné */
   position: relative;
 }
 
+/* Soulignement élégant, pas de fleurs */
 section h3::after {
-  content: "🌸"; /* petite fleur élégante */
+  content: "";
   display: block;
-  font-size: 1.5rem;
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #d48a96, transparent);
   margin: 12px auto 0;
-  color: #d48a96;
-  animation: sparkle 2s infinite ease-in-out;
+  border-radius: 2px;
 }
 
-/* effet subtil qui rend vivant */
-@keyframes sparkle {
-  0%, 100% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.2); opacity: 1; }
-}
+                                                                                                                                                                                                                                                                                                                      display: block;
+                                                                                                                                                                                                                                                                                                                      width: 60px; 
+                                                                                                                                                                                                                                                                                                                      height: 3px;
+                                                                                                                                                                                                                                                                                                                      background: #d48a96;
+                                                                                                                                                                                                                                                                                                                      margin: 12px auto 0; 
+                                                                                                                                                                                                                                                                                                                      border-radius: 2px; }
 
 /* ==================== CURSOR TYPING ==================== */
 .cursor { display: inline-block; margin-left: 6px; color: #a45c6b; font-weight: 700; opacity: 1; animation: blink 1s steps(1) infinite; }
