@@ -112,4 +112,39 @@ function typeEffect() {
 
 typeEffect();
 
+<!-- ================= ALBUM CARROUSEL ================= -->
+const track = document.querySelector('.carousel-track');
+const items = document.querySelectorAll('.carousel-item');
+const prevBtn = document.querySelector('.carousel-btn.prev');
+const nextBtn = document.querySelector('.carousel-btn.next');
+
+let index = 0;
+
+function updateCarousel() {
+  track.style.transform = `translateX(${-index * 100}%)`;
+}
+
+nextBtn.addEventListener('click', () => {
+  index = (index + 1) % items.length;
+  updateCarousel();
+});
+
+prevBtn.addEventListener('click', () => {
+  index = (index - 1 + items.length) % items.length;
+  updateCarousel();
+});
+
+// Swipe mobile
+let startX = 0;
+track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+track.addEventListener('touchend', e => {
+  let endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50) { // swipe gauche
+    index = (index + 1) % items.length;
+  } else if (endX - startX > 50) { // swipe droite
+    index = (index - 1 + items.length) % items.length;
+  }
+  updateCarousel();
+});
+
 
