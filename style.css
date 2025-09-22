@@ -261,73 +261,53 @@ section h3::after {
 
 /* ====== STYLE GRIMOIRE ====== */
 
+/* Grimoire magique */
 #book-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: radial-gradient(circle at center, #2c1a2c, #0d0d0f);
-  overflow: hidden;
   position: relative;
-}
-
-#book-cover {
-  width: 300px;
-  height: 400px;
-  background: linear-gradient(135deg, #5e2a2a, #2c1a1a);
-  border: 6px solid gold;
-  border-radius: 12px;
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  color: #f5e6c4;
   text-align: center;
-  font-family: 'Cinzel Decorative', serif;
-  transition: transform 0.8s ease, box-shadow 0.8s ease;
+  margin: 60px auto;
 }
 
+/* Couverture */
+#book-cover {
+  background: linear-gradient(135deg, #a45c6b, #d48a96);
+  color: white;
+  padding: 50px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: inline-block;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
 #book-cover:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
 }
 
+/* Livre */
 #book {
+  display: none;
   width: 800px;
   height: 500px;
-  display: none;
-}
-
-.page {
-  background: #f5e6c4;
-  padding: 40px;
-  font-family: 'Playfair Display', serif;
-  text-align: center;
-}
-
-.page img {
-  max-width: 100%;
-  height: auto;
-  border: 3px solid #a45c6b;
+  margin: 40px auto;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
   border-radius: 10px;
-  margin: 15px 0;
+  overflow: hidden;
+}
+#book .page {
+  background: #fffdf7;
+  border: 1px solid #d4b5a6;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+  padding: 30px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: #4a3c32;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.hidden {
-  display: none;
-}
-
-/* Effet de poussière magique */
-.particles {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-/* Style pour poussière magique ✨ */
+/* Magie ✨ */
 .particle {
   position: absolute;
   width: 4px;
@@ -336,9 +316,23 @@ section h3::after {
   border-radius: 50%;
   animation: sparkle 2s linear forwards;
 }
-
 @keyframes sparkle {
   from { transform: scale(0) translateY(0); opacity: 1; }
   to { transform: scale(1.5) translateY(-100px); opacity: 0; }
 }
+
+/* Responsive */
+@media (max-width: 900px) {
+  #book {
+    width: 95%;
+    height: 400px;
+  }
+}
+@media (max-width: 600px) {
+  #book {
+    width: 100%;
+    height: 300px;
+  }
+}
+
 
