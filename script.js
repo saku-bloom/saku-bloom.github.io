@@ -114,13 +114,6 @@ typeEffect();
 
 
 <!-- ==================== CERTIFICATES GRIMOIRE ====================-->
-const book = document.getElementById('book');
-if (book) {
-  book.addEventListener('click', () => {
-    book.classList.toggle('open');
-  });
-}
-
 document.getElementById("book-cover").addEventListener("click", function() {
   // Cacher la couverture
   this.style.display = "none";
@@ -137,6 +130,13 @@ document.getElementById("book-cover").addEventListener("click", function() {
     autoCenter: true
   });
 
+  // Effet zoom magique ✨
+  book.style.transform = "scale(0.9)";
+  setTimeout(() => {
+    book.style.transition = "transform 0.5s ease";
+    book.style.transform = "scale(1)";
+  }, 100);
+
   // Créer poussière magique ✨
   createMagicParticles();
 });
@@ -149,9 +149,6 @@ function createMagicParticles() {
     star.style.left = Math.random() * window.innerWidth + "px";
     star.style.top = Math.random() * window.innerHeight + "px";
     container.appendChild(star);
-
     setTimeout(() => star.remove(), 2000);
   }
 }
-
-
