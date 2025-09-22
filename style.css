@@ -328,18 +328,26 @@ section h3::after {
   to { opacity: 1; transform: scale(1);}
 }
 
-
+/* ==================== Poussière magique✨ ==================== */
 .dust {
   position: absolute;
-  width: 6px;
-  height: 6px;
-  background: gold;
+  width: 10px;              /* 🔥 plus gros */
+  height: 10px;
+  background: radial-gradient(circle, gold, orange, red); /* dégradé lumineux */
   border-radius: 50%;
-  opacity: 0.8;
-  animation: sparkle 1.2s ease forwards;
+  opacity: 1;               /* 🔥 100% visible */
+  animation: sparkle 2.5s ease forwards; /* 🔥 dure plus longtemps */
+  box-shadow: 0 0 15px gold, 0 0 25px orange; /* 🔥 effet lumière */
 }
 
 @keyframes sparkle {
-  from { transform: scale(0) translateY(0); opacity: 1; }
-  to { transform: scale(1.2) translateY(-50px); opacity: 0; }
+  from { 
+    transform: scale(0.5) translateY(0); 
+    opacity: 1; 
+  }
+  to { 
+    transform: scale(2) translateY(-150px); /* 🔥 monte + haut et grossit */
+    opacity: 0.7;  /* reste un peu visible avant de disparaître */
+  }
 }
+
