@@ -112,19 +112,14 @@ function typeEffect() {
 
 typeEffect();
 
-<!-- ================= ALBUM CARROUSEL ================= -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4/turn.min.js"></script>
-<script>
-function openBook() {
-  document.getElementById("storybook").classList.remove("closed");
-  document.getElementById("storybook").classList.add("open");
-  
-  $("#book").turn({
-    width: 600,
-    height: 400,
-    autoCenter: true
+
+<!-- ==================== CERTIFICATES GRIMOIRE ====================-->
+const book = document.getElementById('book');
+if (book) {
+  book.addEventListener('click', () => {
+    book.classList.toggle('open');
   });
 }
-</script>
+
 
 
