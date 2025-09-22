@@ -259,73 +259,70 @@ section h3::after {
 }
 
 
-/* ==================== CERTIFICATES GRIMOIRE ==================== */
-.book {
-  width: 500px;
-  height: 350px;
-  margin: 40px auto;
-  perspective: 2000px;
-  cursor: pointer;
+/* ====== STYLE GRIMOIRE ====== */
+
+#book-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: radial-gradient(circle at center, #2c1a2c, #0d0d0f);
+  overflow: hidden;
   position: relative;
 }
 
-.cover {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #5a2a2a, #8b3a3a);
-  border: 5px solid #d4af37;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform-origin: left center;
-  transition: transform 1s ease-in-out;
+#book-cover {
+  width: 300px;
+  height: 400px;
+  background: linear-gradient(135deg, #5e2a2a, #2c1a1a);
+  border: 6px solid gold;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  color: #fdf6e3;
-  font-size: 1.8rem;
-  font-weight: bold;
-  letter-spacing: 2px;
+  align-items: center;
+  cursor: pointer;
+  color: #f5e6c4;
+  text-align: center;
+  font-family: 'Cinzel Decorative', serif;
+  transition: transform 0.8s ease, box-shadow 0.8s ease;
 }
 
-.book.open .cover {
-  transform: rotateY(-160deg);
+#book-cover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
 }
 
-.pages {
+#book {
+  width: 800px;
+  height: 500px;
+  display: none;
+}
+
+.page {
+  background: #f5e6c4;
+  padding: 40px;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+}
+
+.page img {
+  max-width: 100%;
+  height: auto;
+  border: 3px solid #a45c6b;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Effet de poussière magique */
+.particles {
+  position: absolute;
   width: 100%;
   height: 100%;
-  background: #fdf6e3;
-  border: 5px solid #d4af37;
-  border-radius: 10px;
-  box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
-  padding: 20px;
-  text-align: center;
-  overflow-y: auto;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-.book.open .pages {
-  opacity: 1;
-}
-
-.pages h2 {
-  color: #8b3a3a;
-  margin-bottom: 15px;
-}
-
-.pages img {
-  max-width: 80%;
-  border: 2px solid #8b3a3a;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.pages p {
-  font-style: italic;
-  color: #333;
-  margin-bottom: 25px;
+  pointer-events: none;
 }
