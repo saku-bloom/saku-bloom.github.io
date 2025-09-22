@@ -114,41 +114,23 @@ typeEffect();
 
 
 <!-- ==================== CERTIFICATES GRIMOIRE ====================-->
-document.getElementById("book-cover").addEventListener("click", function() {
-  // Cacher la couverture
-  this.style.display = "none";
+// Lightbox
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const lightboxCaption = document.getElementById("lightbox-caption");
+const closeBtn = document.querySelector("#lightbox .close");
 
-  // Afficher le livre avec effet magique
-  const book = document.getElementById("book");
-  book.classList.remove("hidden");
-  book.style.display = "block";
+document.querySelectorAll(".cert-card").forEach(card => {
+  card.addEventListener("click", () => {
+    const img = card.querySelector("img");
+    const caption = card.querySelector("p").innerText;
 
-  // Lancer Turn.js
-  $("#book").turn({
-    width: 800,
-    height: 500,
-    autoCenter: true
+    lightboxImg.src = img.src;
+    lightboxCaption.innerText = caption;
+    lightbox.classList.remove("hidden");
   });
-
-  // Effet zoom magique ✨
-  book.style.transform = "scale(0.9)";
-  setTimeout(() => {
-    book.style.transition = "transform 0.5s ease";
-    book.style.transform = "scale(1)";
-  }, 100);
-
-  // Créer poussière magique ✨
-  createMagicParticles();
 });
 
-function createMagicParticles() {
-  const container = document.getElementById("book-container");
-  for (let i = 0; i < 50; i++) {
-    let star = document.createElement("div");
-    star.classList.add("particle");
-    star.style.left = Math.random() * window.innerWidth + "px";
-    star.style.top = Math.random() * window.innerHeight + "px";
-    container.appendChild(star);
-    setTimeout(() => star.remove(), 2000);
-  }
-}
+closeBtn.addEventListener("click", () => {
+  lightbox.classList.add("hidden");
+});
