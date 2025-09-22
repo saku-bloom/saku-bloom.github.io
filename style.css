@@ -331,8 +331,8 @@ section h3::after {
 /* ==================== Poussière magique✨ ==================== */
 .dust {
   position: absolute;
-  width: 10px;              /* 🔥 plus gros */
-  height: 10px;
+  width: 6px;              /* 🔥 plus gros */
+  height: 6px;
   background: radial-gradient(circle, gold, orange, red); /* dégradé lumineux */
   border-radius: 50%;
   opacity: 1;               /* 🔥 100% visible */
