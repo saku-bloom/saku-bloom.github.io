@@ -114,23 +114,40 @@ typeEffect();
 
 
 <!-- ==================== CERTIFICATES GRIMOIRE ====================-->
-// Lightbox
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const lightboxCaption = document.getElementById("lightbox-caption");
-const closeBtn = document.querySelector("#lightbox .close");
+const pages = document.querySelectorAll(".page");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+let currentPage = 0;
 
-document.querySelectorAll(".cert-card").forEach(card => {
-  card.addEventListener("click", () => {
-    const img = card.querySelector("img");
-    const caption = card.querySelector("p").innerText;
-
-    lightboxImg.src = img.src;
-    lightboxCaption.innerText = caption;
-    lightbox.classList.remove("hidden");
+function showPage(index) {
+  pages.forEach((p, i) => {
+    p.classList.toggle("active", i === index);
   });
+}
+
+showPage(currentPage);
+
+nextBtn.addEventListener("click", () => {
+  currentPage = (currentPage + 1) % pages.length;
+  showPage(currentPage);
+  createMagicDust();
 });
 
-closeBtn.addEventListener("click", () => {
-  lightbox.classList.add("hidden");
+prevBtn.addEventListener("click", () => {
+  currentPage = (currentPage - 1 + pages.length) % pages.length;
+  showPage(currentPage);
+  createMagicDust();
 });
+
+// ✨ Effet poussière magique
+function createMagicDust() {
+  for (let i = 0; i < 15; i++) {
+    let star = document.createElement("span");
+    star.classList.add("dust");
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    document.querySelector(".storybook").appendChild(star);
+
+    setTimeout(() => star.remove(), 1200);
+  }
+}
