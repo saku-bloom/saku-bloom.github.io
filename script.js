@@ -121,5 +121,37 @@ if (book) {
   });
 }
 
+document.getElementById("book-cover").addEventListener("click", function() {
+  // Cacher la couverture
+  this.style.display = "none";
+
+  // Afficher le livre avec effet magique
+  const book = document.getElementById("book");
+  book.classList.remove("hidden");
+  book.style.display = "block";
+
+  // Lancer Turn.js
+  $("#book").turn({
+    width: 800,
+    height: 500,
+    autoCenter: true
+  });
+
+  // Créer poussière magique ✨
+  createMagicParticles();
+});
+
+function createMagicParticles() {
+  const container = document.getElementById("book-container");
+  for (let i = 0; i < 50; i++) {
+    let star = document.createElement("div");
+    star.classList.add("particle");
+    star.style.left = Math.random() * window.innerWidth + "px";
+    star.style.top = Math.random() * window.innerHeight + "px";
+    container.appendChild(star);
+
+    setTimeout(() => star.remove(), 2000);
+  }
+}
 
 
