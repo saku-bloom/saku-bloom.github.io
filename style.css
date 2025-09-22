@@ -326,3 +326,19 @@ section h3::after {
   height: 100%;
   pointer-events: none;
 }
+
+/* Style pour poussière magique ✨ */
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: gold;
+  border-radius: 50%;
+  animation: sparkle 2s linear forwards;
+}
+
+@keyframes sparkle {
+  from { transform: scale(0) translateY(0); opacity: 1; }
+  to { transform: scale(1.5) translateY(-100px); opacity: 0; }
+}
+
