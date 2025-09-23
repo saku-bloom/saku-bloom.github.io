@@ -142,6 +142,8 @@
   
 <!-- ======================================== GRIMOIRE MAGIQUE ========================================== -->
 
+
+            <!-- ======================================== GRIMOIRE MAGIQUE ========================================== -->
 <section id="certificates">
   <div class="page-wrap">
     <div class="section-header">
@@ -150,19 +152,19 @@
     </div>
 
     <div id="book-container">
-      <!-- COVER (closed) -->
+      <!-- COVER (fermé) -->
       <div class="cover" id="book-cover" aria-hidden="false" role="button" tabindex="0">
         <div class="title">📖 My Enchanted Journey</div>
         <div class="subtitle">Click to open the grimoire ✨</div>
       </div>
 
-      <!-- overlay + book area shown when opened -->
+      <!-- overlay plein écran -->
       <div class="book-overlay hidden" id="book-overlay">
         <div class="book-wrap" id="book-wrap">
 
-          <!-- Turn.js 'book' element -->
+          <!-- Turn.js book -->
           <div id="book" class="book">
-            <!-- Cover page -->
+            <!-- Page couverture -->
             <div class="page cover-page">
               <h2>📖 My Enchanted Journey</h2>
               <p>Open the pages to see certificates, milestones and moments.</p>
@@ -186,20 +188,21 @@
               <p>🎓 Master in AI – Deepening knowledge and practice.</p>
             </div>
 
-            <!-- Final page -->
+            <!-- Page finale -->
             <div class="page">
               <h3>✨ The Next Chapter</h3>
               <p>More to come — new projects, new certifications, the story continues.</p>
             </div>
           </div>
 
-          <!-- navigation buttons -->
-          <div class="book-nav" aria-hidden="false">
+          <!-- Navigation -->
+          <div class="book-nav">
             <button class="prev" id="prevBtn" title="Previous page">◀</button>
             <button class="next" id="nextBtn" title="Next page">▶</button>
+            <button class="close" id="closeBook" title="Close book">❌</button>
           </div>
 
-          <!-- particles -->
+          <!-- Particules -->
           <div class="particles" id="particles"></div>
         </div>
       </div>
