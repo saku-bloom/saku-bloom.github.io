@@ -263,80 +263,87 @@ section h3::after {
 
 /* ================================================== STYLE GRIMOIRE =================================================== */
 
-/* ======= OVERLAY ======= */
+/* ====== OVERLAY ====== */
 #book-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.85);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999;
-  transition: opacity 0.5s ease;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
 }
 
+/* Masqué par défaut */
 #book-overlay.hidden {
   display: none;
 }
 
-/* ======= LIVRE ======= */
+/* ====== LIVRE ====== */
 #book {
-  width: 800px;
-  height: 500px;
-  background: #fefaf2;
-  box-shadow: 0 0 40px rgba(255, 215, 0, 0.4), 0 10px 40px rgba(0,0,0,0.7);
-  border: 6px solid #7b4b1f;
-  border-radius: 8px;
-  transform: scale(0.8);
-  animation: openBook 0.6s ease forwards;
-  font-family: "Garamond", serif;
+  width: 850px;
+  height: 550px;
+  background: #fdf8e6;
+  border: 8px solid #4b2c15;
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.6), 0 10px 60px rgba(0,0,0,0.8);
+  transform: scale(0.7) rotateX(10deg);
+  opacity: 0;
+  animation: openBook 0.8s ease forwards;
+  font-family: "Garamond", "Times New Roman", serif;
   overflow: hidden;
 }
 
 /* Animation ouverture magique */
 @keyframes openBook {
-  from {
-    transform: scale(0.6) rotateX(15deg);
-    opacity: 0;
-  }
   to {
     transform: scale(1) rotateX(0);
     opacity: 1;
   }
 }
 
-/* ======= PAGE ======= */
+/* ====== PAGE ====== */
 .page {
-  background: #fffdf5;
+  background: #fffdf3;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 30px,
+    rgba(0,0,0,0.03) 31px
+  );
   border: 1px solid #d6c7a1;
-  padding: 20px;
-  box-sizing: border-box;
+  padding: 25px;
+  text-align: center;
   font-size: 1.2rem;
   line-height: 1.6;
-  text-align: center;
+  box-sizing: border-box;
 }
 
+/* Images & vidéos */
 .page img, 
 .page video {
   max-width: 90%;
-  max-height: 300px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  max-height: 320px;
+  margin: 10px auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
 /* Couverture spéciale */
 .page.cover {
-  background: linear-gradient(135deg, #6b4226, #3d2312);
-  color: #f8e6c0;
-  font-size: 1.5rem;
+  background: linear-gradient(135deg, #5a3214, #2d1608);
+  color: #fce7b2;
+  font-size: 1.6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.8);
 }
 
-/* ======= NAVIGATION ======= */
+/* ====== NAVIGATION ====== */
 .book-controls {
   position: absolute;
   bottom: 20px;
@@ -345,64 +352,44 @@ section h3::after {
 }
 
 .book-controls button {
-  background: #7b4b1f;
+  background: radial-gradient(circle, #d4af37, #8b6914);
   color: #fff;
-  border: none;
-  padding: 10px 18px;
-  margin: 0 10px;
+  border: 2px solid #fff8dc;
+  padding: 12px 20px;
+  margin: 0 15px;
   font-size: 1.2rem;
-  border-radius: 6px;
+  border-radius: 50%;
   cursor: pointer;
-  transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  transition: transform 0.3s, background 0.3s;
 }
 
 .book-controls button:hover {
-  background: #a86f3c;
+  transform: scale(1.2);
+  background: radial-gradient(circle, #ffd700, #a67c00);
 }
 
-/* ======= BOUTON FERMETURE ======= */
+/* ====== BOUTON FERMETURE ====== */
 #closeBook {
   position: absolute;
   top: 15px;
-  right: 20px;
+  right: 25px;
   background: #b22222;
   color: #fff;
-  border: none;
-  font-size: 1.5rem;
+  border: 2px solid #fff;
+  font-size: 1.3rem;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transition: 0.3s;
 }
 
 #closeBook:hover {
   background: #ff4444;
+  transform: rotate(90deg);
 }
 
-
-
-/* ==================== =========================== Poussière magique✨ ====================================== ==================== */
-.dust {
-  position: absolute;
-  width: 6px;              /* 🔥 plus gros */
-  height: 6px;
-  background: radial-gradient(circle, gold, orange, red); /* dégradé lumineux */
-  border-radius: 50%;
-  opacity: 1;               /* 🔥 100% visible */
-  animation: sparkle 2.5s ease forwards; /* 🔥 dure plus longtemps */
-  box-shadow: 0 0 15px gold, 0 0 25px orange; /* 🔥 effet lumière */
-}
-
-@keyframes sparkle {
-  from { 
-    transform: scale(0.5) translateY(0); 
-    opacity: 1; 
-  }
-  to { 
-    transform: scale(2) translateY(-150px); /* 🔥 monte + haut et grossit */
-    opacity: 0.7;  /* reste un peu visible avant de disparaître */
-  }
-}
 
 
