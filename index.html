@@ -15,6 +15,11 @@
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
+
+   <!-- jQuery & Turn.js -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
+
   <!-- Custom CSS   js-->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -138,44 +143,66 @@
 <!-- ======================================== GRIMOIRE MAGIQUE ========================================== -->
 
 <section id="certificates">
-  <div class="container">
-    <h3>My Journey ✨</h3>
-    <div class="storybook">
-      <button class="nav prev">⬅</button>
+  <div class="page-wrap">
+    <div class="section-header">
+      <h3>Certificates & Achievements</h3>
+      <div class="section-sub">Tap the grimoire to open my story — turn pages to discover each chapter.</div>
+    </div>
 
-      <div class="pages">
-        
-        <!-- Couverture -->
-        <div class="page cover">
-          <h2>📖 My Enchanted Journey 📖</h2>
-          <p>💫 Open the grimoire and follow my story...</p>
-        </div>
-
-        <!-- Page 1 -->
-        <div class="page">
-          <img src="certificates/SOUTENANCE.jpeg" alt="Soutenance">
-          <p>🎓 Soutenance – A key milestone in my journey</p>
-        </div>
-
-       <!-- Page vidéo -->
-<div class="page">
-  <video controls>
-    <source src="certificates/video1.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <p>🎥 My Presentation – Reliving the moment ✨</p>
-</div>
-
-
-        <!-- Page 3 -->
-        <div class="page">
-          <img src="certificates/cert3.jpg" alt="Certificate 3">
-          <p>🎓 Master in AI – Knowledge is power</p>
-        </div>
-
+    <div id="book-container">
+      <!-- COVER (closed) -->
+      <div class="cover" id="book-cover" aria-hidden="false" role="button" tabindex="0">
+        <div class="title">📖 My Enchanted Journey</div>
+        <div class="subtitle">Click to open the grimoire ✨</div>
       </div>
 
-      <button class="nav next">➡</button>
+      <!-- overlay + book area shown when opened -->
+      <div class="book-overlay hidden" id="book-overlay">
+        <div class="book-wrap" id="book-wrap">
+
+          <!-- Turn.js 'book' element -->
+          <div id="book" class="book">
+            <!-- Cover page -->
+            <div class="page cover-page">
+              <h2>📖 My Enchanted Journey</h2>
+              <p>Open the pages to see certificates, milestones and moments.</p>
+            </div>
+
+            <!-- Page 1 -->
+            <div class="page">
+              <img src="certificates/SOUTENANCE.jpeg" alt="Soutenance certificate">
+              <p>🎓 Soutenance – A key milestone in my journey.</p>
+            </div>
+
+            <!-- Page 2 -->
+            <div class="page">
+              <img src="certificates/cert2.jpg" alt="Certificate 2">
+              <p>🏆 Startup Label – A recognition that opened doors.</p>
+            </div>
+
+            <!-- Page 3 -->
+            <div class="page">
+              <img src="certificates/cert3.jpg" alt="Certificate 3">
+              <p>🎓 Master in AI – Deepening knowledge and practice.</p>
+            </div>
+
+            <!-- Final page -->
+            <div class="page">
+              <h3>✨ The Next Chapter</h3>
+              <p>More to come — new projects, new certifications, the story continues.</p>
+            </div>
+          </div>
+
+          <!-- navigation buttons -->
+          <div class="book-nav" aria-hidden="false">
+            <button class="prev" id="prevBtn" title="Previous page">◀</button>
+            <button class="next" id="nextBtn" title="Next page">▶</button>
+          </div>
+
+          <!-- particles -->
+          <div class="particles" id="particles"></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
