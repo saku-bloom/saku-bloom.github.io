@@ -351,3 +351,32 @@ section h3::after {
   }
 }
 
+
+.page.cover {
+  background: #fdf3e7; /* beige parchemin */
+  background-image: radial-gradient(circle, rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 8px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  color: #4a3c32; /* marron vintage */
+  border: 6px solid #a45c6b; /* cadre bordeaux/vieux rose */
+  border-radius: 12px;
+  box-shadow: inset 0 0 40px rgba(0,0,0,0.2), 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.page.cover h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 4px rgba(164,92,107,0.4);
+}
+
+.page.cover p {
+  font-size: 1.2rem;
+  font-style: italic;
+  opacity: 0.85;
+}
+
