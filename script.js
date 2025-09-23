@@ -114,40 +114,32 @@ typeEffect();
 
 
 <!-- ==================== CERTIFICATES GRIMOIRE ====================-->
-const pages = document.querySelectorAll(".page");
-const prevBtn = document.querySelector(".prev");
-const nextBtn = document.querySelector(".next");
-let currentPage = 0;
 
-function showPage(index) {
-  pages.forEach((p, i) => {
-    p.classList.toggle("active", i === index);
+const bookCover = document.getElementById("book-cover");
+const bookOverlay = document.getElementById("book-overlay");
+const closeBookBtn = document.getElementById("closeBook");
+
+bookCover.addEventListener("click", function() {
+  bookOverlay.classList.remove("hidden");
+
+  // Activer Turn.js seulement quand le livre est ouvert
+  $("#book").turn({
+    width: 800,
+    height: 500,
+    autoCenter: true
   });
-}
-
-showPage(currentPage);
-
-nextBtn.addEventListener("click", () => {
-  currentPage = (currentPage + 1) % pages.length;
-  showPage(currentPage);
-  createMagicDust();
 });
 
-prevBtn.addEventListener("click", () => {
-  currentPage = (currentPage - 1 + pages.length) % pages.length;
-  showPage(currentPage);
-  createMagicDust();
+// Fermer le livre
+closeBookBtn.addEventListener("click", function() {
+  bookOverlay.classList.add("hidden");
+  $("#book").turn("destroy"); // reset turn.js
 });
 
-// ✨ Effet poussière magique
-function createMagicDust() {
-  for (let i = 0; i < 15; i++) {
-    let star = document.createElement("span");
-    star.classList.add("dust");
-    star.style.left = Math.random() * 100 + "%";
-    star.style.top = Math.random() * 100 + "%";
-    document.querySelector(".storybook").appendChild(star);
-
-    setTimeout(() => star.remove(), 1200);
-  }
-}
+// Navigation
+document.getElementById("prevBtn").addEventListener("click", () => {
+  $("#book").turn("previous");
+});
+document.getElementById("nextBtn").addEventListener("click", () => {
+  $("#book").turn("next");
+});
