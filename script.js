@@ -113,7 +113,7 @@ function typeEffect() {
 typeEffect();
 
 
-<!-- ==================== CERTIFICATES GRIMOIRE ====================-->
+// ==================== CERTIFICATES GRIMOIRE ====================
 
 const bookCover = document.getElementById("book-cover");
 const bookOverlay = document.getElementById("book-overlay");
