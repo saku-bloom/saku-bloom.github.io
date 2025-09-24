@@ -113,9 +113,8 @@ function typeEffect() {
 typeEffect();
 
 
-// ==================== CERTIFICATES GRIMOIRE ====================
 
-// ================= CERTIFICATS CAROUSEL =================
+// ==================== CERTIFICATS CAROUSEL IMPROVED ====================
 const carousel = document.querySelector(".carousel");
 const items = document.querySelectorAll(".carousel-item");
 const prevBtn = document.querySelector(".prev");
@@ -123,22 +122,30 @@ const nextBtn = document.querySelector(".next");
 
 let index = 0;
 
+// Active item au chargement
+items[index].classList.add("active");
+
 function showSlide(i) {
-  if (i < 0) {
-    index = items.length - 1;
-  } else if (i >= items.length) {
-    index = 0;
-  } else {
-    index = i;
-  }
+  items[index].classList.remove("active");
+  if (i < 0) index = items.length - 1;
+  else if (i >= items.length) index = 0;
+  else index = i;
+  items[index].classList.add("active");
   carousel.style.transform = `translateX(${-index * 100}%)`;
 }
 
+// Boutons
 prevBtn.addEventListener("click", () => showSlide(index - 1));
 nextBtn.addEventListener("click", () => showSlide(index + 1));
 
-// Auto défilement toutes les 5s
-setInterval(() => {
-  showSlide(index + 1);
-}, 5000);
+// Auto défilement
+setInterval(() => { showSlide(index + 1); }, 6000);
 
+// ✅ Swipe au doigt (mobile)
+let startX = 0;
+carousel.addEventListener("touchstart", (e) => startX = e.touches[0].clientX);
+carousel.addEventListener("touchend", (e) => {
+  let endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50) showSlide(index + 1); // swipe left
+  else if (endX - startX > 50) showSlide(index - 1); // swipe right
+});
