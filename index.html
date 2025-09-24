@@ -143,34 +143,29 @@
 
  
 <!-- ==================== ENCHANTED GRIMOIRE / CERTIFICATES BOOK ==================== -->
-<section id="grimoire">
-  <div class="storybook">
-    <div class="page" id="page1">
-      <img src="certificat1.jpg" alt="Certificate 1">
-      <h2>Chapter I</h2>
-      <p>Here is a milestone, a certificate that marks the start of my magical journey…</p>
-    </div>
-    <div class="page" id="page2">
-      <img src="certificat2.jpg" alt="Certificate 2">
-      <h2>Chapter II</h2>
-      <p>This certificate brings recognition and encouragement along the path…</p>
-    </div>
-    <div class="page" id="page3">
-      <img src="certificat3.jpg" alt="Certificate 3">
-      <h2>Chapter III</h2>
-      <p>A new chapter with more achievements and growth…</p>
-    </div>
-
-    <div class="controls">
-      <button class="btn" onclick="prevPage()">⬅</button>
-      <button class="btn" onclick="nextPage()">➡</button>
+<section id="certificates">
+  <div class="container">
+    <h3>Certificates</h3>
+    <div id="flipbook">
+      <div class="page">
+        <h2>Chapter I</h2>
+        <img src="cert1.png" alt="Certificate 1">
+        <p>Here is a milestone, a certificate that marks the start of my magical journey.</p>
+      </div>
+      <div class="page">
+        <h2>Chapter II</h2>
+        <img src="cert2.png" alt="Certificate 2">
+        <p>This certificate brings recognition and encouragement along the path.</p>
+      </div>
+      <div class="page">
+        <h2>Chapter III</h2>
+        <img src="cert3.png" alt="Certificate 3">
+        <p>A new chapter with more achievements and growth.</p>
+      </div>
     </div>
   </div>
 </section>
 
-
-
-  
 
 <!-- =========================== Contact Section ======================================== -->
 <section id="contact">
@@ -219,6 +214,10 @@
 
   <!-- Custom JS -->
   <script src="script.js"></script>
+
+
+  <!-- Turn.js (CDN) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
 
 </body>
 </html>
