@@ -115,34 +115,13 @@ typeEffect();
 
 // ==================== CERTIFICATES GRIMOIRE ====================
 
-let currentPage = 1;
-const totalPages = 3;  // modifie selon le nombre de pages que tu as
+document.addEventListener("DOMContentLoaded", function() {
+  $("#flipbook").turn({
+    width: 800,
+    height: 500,
+    autoCenter: true,
+    gradients: true,
+    duration: 1200
+  });
+});
 
-function showPage(page) {
-  for (let i = 1; i <= totalPages; i++) {
-    const el = document.getElementById(`page${i}`);
-    if (!el) continue;
-    if (i < page) {
-      el.classList.add("flipped");
-    } else {
-      el.classList.remove("flipped");
-    }
-  }
-}
-
-function nextPage() {
-  if (currentPage < totalPages) {
-    currentPage++;
-    showPage(currentPage);
-  }
-}
-
-function prevPage() {
-  if (currentPage > 1) {
-    currentPage--;
-    showPage(currentPage);
-  }
-}
-
-// initial call
-showPage(currentPage);
