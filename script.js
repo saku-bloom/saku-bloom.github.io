@@ -115,31 +115,12 @@ typeEffect();
 
 // ==================== CERTIFICATES GRIMOIRE ====================
 
-const bookCover = document.getElementById("book-cover");
-const bookOverlay = document.getElementById("book-overlay");
-const closeBookBtn = document.getElementById("closeBook");
-
-bookCover.addEventListener("click", function() {
-  bookOverlay.classList.remove("hidden");
-
-  // Activer Turn.js seulement quand le livre est ouvert
-  $("#book").turn({
-    width: 800,
-    height: 500,
-    autoCenter: true
+$(document).ready(function(){
+  $("#flipbook").turn({
+    width: 600,
+    height: 400,
+    autoCenter: true,
+    gradients: true,
+    duration: 1000
   });
-});
-
-// Fermer le livre
-closeBookBtn.addEventListener("click", function() {
-  bookOverlay.classList.add("hidden");
-  $("#book").turn("destroy"); // reset turn.js
-});
-
-// Navigation
-document.getElementById("prevBtn").addEventListener("click", () => {
-  $("#book").turn("previous");
-});
-document.getElementById("nextBtn").addEventListener("click", () => {
-  $("#book").turn("next");
 });
