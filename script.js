@@ -115,37 +115,25 @@ typeEffect();
 
 
 // ==================== CERTIFICATS CAROUSEL IMPROVED ====================
-const carousel = document.querySelector(".carousel");
-const items = document.querySelectorAll(".carousel-item");
-const prevBtn = document.querySelector(".prev");
-const nextBtn = document.querySelector(".next");
+// Lightbox Logic
+const galleryImages = document.querySelectorAll(".gallery img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.querySelector(".close");
 
-let index = 0;
+galleryImages.forEach(img => {
+  img.addEventListener("click", () => {
+    lightbox.style.display = "block";
+    lightboxImg.src = img.src;
+  });
+});
 
-// Active item au chargement
-items[index].classList.add("active");
+closeBtn.addEventListener("click", () => {
+  lightbox.style.display = "none";
+});
 
-function showSlide(i) {
-  items[index].classList.remove("active");
-  if (i < 0) index = items.length - 1;
-  else if (i >= items.length) index = 0;
-  else index = i;
-  items[index].classList.add("active");
-  carousel.style.transform = `translateX(${-index * 100}%)`;
-}
-
-// Boutons
-prevBtn.addEventListener("click", () => showSlide(index - 1));
-nextBtn.addEventListener("click", () => showSlide(index + 1));
-
-// Auto défilement
-setInterval(() => { showSlide(index + 1); }, 6000);
-
-// ✅ Swipe au doigt (mobile)
-let startX = 0;
-carousel.addEventListener("touchstart", (e) => startX = e.touches[0].clientX);
-carousel.addEventListener("touchend", (e) => {
-  let endX = e.changedTouches[0].clientX;
-  if (startX - endX > 50) showSlide(index + 1); // swipe left
-  else if (endX - startX > 50) showSlide(index - 1); // swipe right
+lightbox.addEventListener("click", (e) => {
+  if (e.target !== lightboxImg) {
+    lightbox.style.display = "none";
+  }
 });
