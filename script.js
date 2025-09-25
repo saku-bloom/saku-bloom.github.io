@@ -115,8 +115,7 @@ typeEffect();
 
 
 // ==================== CERTIFICATS CAROUSEL IMPROVED ====================
-<script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
-<script>
+
   document.addEventListener("DOMContentLoaded", () => {
     $("#flipbook").turn({
       width: 700,
@@ -126,5 +125,5 @@ typeEffect();
       elevation: 50
     });
   });
-</script>
+
 
