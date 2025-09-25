@@ -115,25 +115,16 @@ typeEffect();
 
 
 // ==================== CERTIFICATS CAROUSEL IMPROVED ====================
-// Lightbox Logic
-const galleryImages = document.querySelectorAll(".gallery img");
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const closeBtn = document.querySelector(".close");
-
-galleryImages.forEach(img => {
-  img.addEventListener("click", () => {
-    lightbox.style.display = "block";
-    lightboxImg.src = img.src;
+<script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    $("#flipbook").turn({
+      width: 700,
+      height: 450,
+      autoCenter: true,
+      gradients: true,
+      elevation: 50
+    });
   });
-});
+</script>
 
-closeBtn.addEventListener("click", () => {
-  lightbox.style.display = "none";
-});
-
-lightbox.addEventListener("click", (e) => {
-  if (e.target !== lightboxImg) {
-    lightbox.style.display = "none";
-  }
-});
