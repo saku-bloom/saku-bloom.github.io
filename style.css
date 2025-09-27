@@ -263,150 +263,25 @@ section h3::after {
 
 
 /* ===================================================== GALLERY MOSAÏQUE ========================================= */
-/* ===== 3D Animated Book (pure CSS) ===== */
-.book-container {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:18px;
-  perspective:1400px;
-  margin: 40px auto;
-}
+<section id="certificates">
+  <h3>✨ Mon Livre de Certificats ✨</h3>
+  <div class="book-container">
+    <div class="book" id="magicBook">
+      <div class="cover front">🌸 Mes Certificats</div>
+      <div class="pages">
+        <div class="page">Page 1<br>Mon premier certificat</div>
+        <div class="page">Page 2<br>Deuxième certificat</div>
+        <div class="page">Page 3<br>Troisième certificat</div>
+      </div>
+      <div class="cover back"></div>
+    </div>
+  </div>
+</section>
 
-/* hide native checkboxes */
-.book-toggle,
-.page-toggle { position: absolute; left: -9999px; }
-
-/* book size (adjust if needed) */
-.book {
-  width: 260px;
-  height: 340px;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.9s ease;
-  user-select: none;
-}
-
-/* spine for depth */
-.book .spine {
-  position:absolute;
-  left:-10px;
-  top:16px;
-  width:10px;
-  height: calc(100% - 32px);
-  border-radius:3px;
-  background: linear-gradient(180deg,#e9e0dc,#cbbfb8);
-  z-index:0;
-}
-
-/* covers + pages shared */
-.book .cover,
-.book .page {
-  position:absolute;
-  top:0; left:0;
-  width:100%; height:100%;
-  backface-visibility: hidden;
-  transform-origin: left;
-  border-radius:8px;
-  overflow:hidden;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-  transition: transform 0.9s cubic-bezier(.2,.9,.3,1), box-shadow .3s;
-}
-
-/* front cover (visible closed) */
-.book .cover.front {
-  background: linear-gradient(135deg, #d48a96, #a45c6b);
-  color: white;
-  z-index: 100;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:700;
-  letter-spacing:0.6px;
-  transform: rotateY(0deg);
-}
-
-/* back cover */
-.book .cover.back {
-  background: #2f2a27;
-  transform: rotateY(180deg);
-  z-index: 5;
-}
-
-/* page base style */
-.book .page {
-  background: #fff;
-  border: 1px solid #eee;
-  z-index: 50;
-  transform: rotateY(0deg); /* fermé */
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-/* page inner to hold image/text */
-.book .page .page-inner {
-  padding: 12px;
-  width:100%; height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.book .page img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* stacking order: later pages are behind earlier ones so they flip naturally */
-.book .page.page-0 { z-index: 80; }
-.book .page.page-1 { z-index: 70; transform: translateX(6px) rotateY(-6deg); }
-.book .page.page-2 { z-index: 60; transform: translateX(12px) rotateY(-12deg); }
-
-/* FLIP STATES controlled by checkboxes */
-
-/* when book-open checked => open the front cover */
-#book-open:checked ~ .book .cover.front {
-  transform: rotateY(-170deg) translateX(-12px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-}
-
-/* flipping page-0 when page-1 checkbox checked (first flip)
-   note: require book to be open visually desirable (optional) */
-#page-1:checked ~ .book .page.page-0 {
-  transform: rotateY(-180deg);
-  z-index: 20;
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.06);
-}
-
-/* flipping page-1 when page-2 checked (second flip) */
-#page-2:checked ~ .book .page.page-1 {
-  transform: rotateY(-180deg);
-  z-index: 18;
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.06);
-}
-
-/* if both page-1 and page-2 checked, page-0 should remain flipped as well:
-   page-0 flips when page-1 is checked (logic above). */
-
-/* Small hover polish - subtle lift when book open */
-#book-open:checked ~ .book { transform: translateY(-6px); }
-
-/* Controls styling */
-.book-controls { display:flex; gap:12px; }
-.book-controls .btn {
-  background:#fff;
-  border:1px solid #f0d7db;
-  padding:8px 12px;
-  border-radius:10px;
-  cursor:pointer;
-  color:#4a3c32;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-  transition: transform .12s, background .12s;
-}
-.book-controls .btn:hover { transform: translateY(-3px); background:#fdf2f4; }
-
-/* Responsive */
-@media (max-width:640px) {
-  .book { width: 190px; height: 250px; }
-}
+<script>
+  // Toggle ouverture/fermeture du livre
+  const book = document.getElementById("magicBook");
+  book.addEventListener("click", () => {
+    book.classList.toggle("open");
+  });
+</script>
