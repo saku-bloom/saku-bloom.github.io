@@ -114,16 +114,6 @@ typeEffect();
 
 
 
-// ==================== CERTIFICATS CAROUSEL IMPROVED ====================
 
-  document.addEventListener("DOMContentLoaded", () => {
-    $("#flipbook").turn({
-      width: 700,
-      height: 450,
-      autoCenter: true,
-      gradients: true,
-      elevation: 50
-    });
-  });
 
 
