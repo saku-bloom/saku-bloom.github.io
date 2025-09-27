@@ -17,6 +17,12 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
+
+<!-- Lightbox CSS & JS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+  
 </head>
 <body>
 
@@ -107,23 +113,26 @@
   </section>
 
   <!-- Certificates Carousel -->
+<!-- Certificates Section -->
 <section id="certificates">
   <div class="container">
     <h3>🎀 My Certificates</h3>
     <div class="certif-gallery">
-      <a href="certif1.jpg" target="_blank">
-        <img src="Certificates/SOUTENANCE.jpeg" alt="Certificate 1">
+      <a href="certif1.jpg" data-lightbox="certifs" data-title="Certificate 1">
+        <img src="certif1.jpg" alt="Certificate 1">
       </a>
-      <a href="certif2.jpg" target="_blank">
+      <a href="certif2.jpg" data-lightbox="certifs" data-title="Certificate 2">
         <img src="certif2.jpg" alt="Certificate 2">
       </a>
-      <a href="certif3.jpg" target="_blank">
+      <a href="certif3.jpg" data-lightbox="certifs" data-title="Certificate 3">
         <img src="certif3.jpg" alt="Certificate 3">
       </a>
-      <!-- Tu ajoutes autant que tu veux -->
+      <!-- ajoute autant de certificats que tu veux -->
     </div>
   </div>
 </section>
+
+
 
 
 
