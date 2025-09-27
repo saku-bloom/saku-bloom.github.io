@@ -113,9 +113,4 @@ function typeEffect() {
 typeEffect();
 
 
-// ============================== 3D BOOK PAGE TURN =============================================
-  // Toggle ouverture/fermeture du livre
-  const book = document.getElementById("magicBook");
-  book.addEventListener("click", () => {
-    book.classList.toggle("open");
-  });
+
