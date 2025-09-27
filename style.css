@@ -263,25 +263,24 @@ section h3::after {
 
 
 /* ===================================================== GALLERY MOSAÏQUE ========================================= */
-<section id="certificates">
-  <h3>✨ Mon Livre de Certificats ✨</h3>
-  <div class="book-container">
-    <div class="book" id="magicBook">
-      <div class="cover front">🌸 Mes Certificats</div>
-      <div class="pages">
-        <div class="page">Page 1<br>Mon premier certificat</div>
-        <div class="page">Page 2<br>Deuxième certificat</div>
-        <div class="page">Page 3<br>Troisième certificat</div>
-      </div>
-      <div class="cover back"></div>
-    </div>
-  </div>
-</section>
+.certif-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
 
-<script>
-  // Toggle ouverture/fermeture du livre
-  const book = document.getElementById("magicBook");
-  book.addEventListener("click", () => {
-    book.classList.toggle("open");
-  });
-</script>
+.certif-gallery img {
+  width: 100%;
+  border-radius: 12px;
+  border: 3px solid #f9e0e7; /* cadre rose clair */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.certif-gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(164, 92, 107, 0.3);
+}
+
