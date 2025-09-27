@@ -107,50 +107,20 @@
   </section>
 
   <!-- Certificates Carousel -->
-<!-- 3D Animated Book (HTML only) -->
-<div class="book-container">
-  <!-- contrôles (checkbox cachées) -->
-  <input type="checkbox" id="book-open" class="book-toggle" />
-  <input type="checkbox" id="page-1" class="page-toggle" />
-  <input type="checkbox" id="page-2" class="page-toggle" />
-
-  <!-- livre -->
-  <div class="book" aria-hidden="false">
-    <div class="spine"></div>
-
-    <!-- ordre : du plus en arrière (back cover) au plus en avant (front cover) -->
-    <div class="cover back"> <!-- arrière --> </div>
-
-    <div class="page page-2">
-      <div class="page-inner">
-        <img src="images/certificat3.jpg" alt="Certificat 3">
+<section id="certificates">
+  <h3>✨ Mon Livre de Certificats ✨</h3>
+  <div class="book-container">
+    <div class="book" id="magicBook">
+      <div class="cover front">🌸 Mes Certificats</div>
+      <div class="pages">
+        <div class="page">Page 1<br>Mon premier certificat</div>
+        <div class="page">Page 2<br>Deuxième certificat</div>
+        <div class="page">Page 3<br>Troisième certificat</div>
       </div>
-    </div>
-
-    <div class="page page-1">
-      <div class="page-inner">
-        <img src="images/certificat2.jpg" alt="Certificat 2">
-      </div>
-    </div>
-
-    <div class="page page-0">
-      <div class="page-inner">
-        <img src="certificates/SOUTENANCE.jpeg" alt="Certificat 1">
-      </div>
-    </div>
-
-    <div class="cover front">
-      <div class="cover-title">📘 Mon Livre</div>
+      <div class="cover back"></div>
     </div>
   </div>
-
-  <!-- contrôles visibles (labels associés aux checkboxes) -->
-  <div class="book-controls" aria-hidden="false">
-    <label for="book-open" class="btn">Ouvrir / Fermer</label>
-    <label for="page-1" class="btn">Page 1</label>
-    <label for="page-2" class="btn">Page 2</label>
-  </div>
-</div>
+</section>
 
 
 
