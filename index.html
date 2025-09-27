@@ -107,22 +107,51 @@
   </section>
 
   <!-- Certificates Carousel -->
+<!-- 3D Animated Book (HTML only) -->
 <div class="book-container">
-  <div class="book">
-    <div class="cover front">📘 Mon Livre</div>
-    <div class="page">✨ Certificat 1</div>
-    <div class="page">📜 Certificat 2</div>
-    <div class="page">🏆 Certificat 3</div>
-    <div class="cover back"></div>
+  <!-- contrôles (checkbox cachées) -->
+  <input type="checkbox" id="book-open" class="book-toggle" />
+  <input type="checkbox" id="page-1" class="page-toggle" />
+  <input type="checkbox" id="page-2" class="page-toggle" />
+
+  <!-- livre -->
+  <div class="book" aria-hidden="false">
+    <div class="spine"></div>
+
+    <!-- ordre : du plus en arrière (back cover) au plus en avant (front cover) -->
+    <div class="cover back"> <!-- arrière --> </div>
+
+    <div class="page page-2">
+      <div class="page-inner">
+        <img src="images/certificat3.jpg" alt="Certificat 3">
+      </div>
+    </div>
+
+    <div class="page page-1">
+      <div class="page-inner">
+        <img src="images/certificat2.jpg" alt="Certificat 2">
+      </div>
+    </div>
+
+    <div class="page page-0">
+      <div class="page-inner">
+        <img src="certificates/SOUTENANCE.jpeg" alt="Certificat 1">
+      </div>
+    </div>
+
+    <div class="cover front">
+      <div class="cover-title">📘 Mon Livre</div>
+    </div>
+  </div>
+
+  <!-- contrôles visibles (labels associés aux checkboxes) -->
+  <div class="book-controls" aria-hidden="false">
+    <label for="book-open" class="btn">Ouvrir / Fermer</label>
+    <label for="page-1" class="btn">Page 1</label>
+    <label for="page-2" class="btn">Page 2</label>
   </div>
 </div>
 
-<div style="text-align:center; margin-top:20px;">
-  <button class="open-book">📖 Ouvrir</button>
-  <button class="prev-page">⬅️ Précédent</button>
-  <button class="next-page">➡️ Suivant</button>
-  <button class="close-book">❌ Fermer</button>
-</div>
 
 
 
