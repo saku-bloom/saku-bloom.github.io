@@ -327,3 +327,14 @@ section h3::after {
 .book .page:nth-child(2) { transform: rotateY(-40deg); }
 .book .page:nth-child(3) { transform: rotateY(-60deg); }
 .book .page:nth-child(4) { transform: rotateY(-80deg); }
+
+/* Forcer les pages à être fermées tant qu’elles ne sont pas "flipped" */
+.book .page {
+  transform: rotateY(0deg);  /* toujours fermées de base */
+}
+
+/* Couverture au-dessus tant que le livre est fermé */
+.book:not(.open) .cover.front {
+  z-index: 999;
+}
+
