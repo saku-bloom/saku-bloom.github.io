@@ -113,6 +113,58 @@ function typeEffect() {
 typeEffect();
 
 
+// ============================== 3D BOOK PAGE TURN =============================================
+(function(){
+  const book = document.querySelector(".book");
+  if (!book) return;
+
+  const pages = book.querySelectorAll(".page");
+  let current = -1; // -1 = livre fermé
+
+  // bouton open
+  const openBtn = document.querySelector(".open-book");
+  if (openBtn) {
+    openBtn.addEventListener("click", () => {
+      book.classList.add("open");
+      current = -1;
+    });
+  }
+
+  // bouton next
+  const nextBtn = document.querySelector(".next-page");
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      if (current < pages.length - 1) {
+        current++;
+        pages[current].classList.add("flipped");
+      }
+    });
+  }
+
+  // bouton prev
+  const prevBtn = document.querySelector(".prev-page");
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      if (current >= 0) {
+        pages[current].classList.remove("flipped");
+        current--;
+      }
+    });
+  }
+
+  // bouton close
+  const closeBtn = document.querySelector(".close-book");
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      book.classList.remove("open");
+      pages.forEach(p => p.classList.remove("flipped"));
+      current = -1;
+    });
+  }
+})();
+
+
+
 
 
 
