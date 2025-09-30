@@ -113,14 +113,31 @@ function typeEffect() {
 typeEffect();
 
 // ==================== CERTIFICATES 3D BOOK ==================== 
-document.addEventListener("DOMContentLoaded", () => {
-  $("#flipbook").turn({
-    width: 800,
-    height: 500,
-    autoCenter: true,
-    gradients: true,
-    elevation: 50,
+// Lightbox
+const certs = document.querySelectorAll('.certificate img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCaption = document.getElementById('lightbox-caption');
+const closeBtn = document.querySelector('#lightbox .close');
+
+certs.forEach(cert => {
+  cert.addEventListener('click', () => {
+    lightbox.style.display = 'block';
+    lightboxImg.src = cert.src;
+    lightboxCaption.textContent = cert.alt;
   });
+});
+
+closeBtn.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    lightbox.style.display = 'none';
+  }
+});
+
 });
 
 
