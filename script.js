@@ -142,30 +142,3 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// ==================== poussière magique 🌟==========================
-
-document.querySelectorAll('.certificate p').forEach(title => {
-  title.addEventListener('mouseenter', () => {
-    for (let i = 0; i < 15; i++) {
-      const sparkle = document.createElement('span');
-      sparkle.classList.add('sparkle');
-      
-      // Position de départ = autour du texte
-      sparkle.style.left = `${Math.random() * title.offsetWidth}px`;
-      sparkle.style.top = `${Math.random() * title.offsetHeight}px`;
-
-      // Destination aléatoire
-      sparkle.style.setProperty('--x', `${(Math.random() - 0.5) * 150}px`);
-      sparkle.style.setProperty('--y', `${-Math.random() * 120}px`);
-
-      title.appendChild(sparkle);
-
-      // Retirer après l’animation
-      setTimeout(() => sparkle.remove(), 1000);
-    }
-  });
-});
-
-
-
-
