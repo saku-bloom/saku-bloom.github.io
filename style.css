@@ -263,38 +263,42 @@ section h3::after {
 
 
 /* ===================================================== GALLERY MOSAÏQUE ========================================= */
-#certificates {
+/* ====== Flipbook Style ====== */
+#flipbook {
+  width: 800px;
+  height: 500px;
+  margin: 40px auto;
+}
+
+#flipbook .page {
+  background: #fffdf9;
+  border: 1px solid #ddd;
+  padding: 20px;
+  font-family: 'Playfair Display', serif;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#flipbook .cover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(135deg, #ffe4ec, #fffaf0);
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #444;
+}
+
+#flipbook img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#flipbook p {
   text-align: center;
-  padding: 50px 20px;
-  background: linear-gradient(135deg, #fdf6f9, #fbe8f2);
+  font-size: 1rem;
+  color: #333;
 }
-
-#certificates h3 {
-  font-size: 2rem;
-  color: #a43c61; /* rose foncé élégant */
-  margin-bottom: 30px;
-  font-family: 'Poppins', sans-serif;
-}
-
-.certif-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  justify-items: center;
-}
-
-.certif-gallery img {
-  width: 100%;
-  max-width: 250px;
-  border-radius: 15px;
-  border: 3px solid #f9e0e7; /* cadre rose clair */
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.certif-gallery img:hover {
-  transform: scale(1.07);
-  box-shadow: 0 10px 25px rgba(164, 92, 107, 0.3);
-}
-
