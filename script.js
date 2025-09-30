@@ -112,5 +112,17 @@ function typeEffect() {
 
 typeEffect();
 
+// ==================== CERTIFICATES 3D BOOK ==================== 
+document.addEventListener("DOMContentLoaded", () => {
+  $("#flipbook").turn({
+    width: 800,
+    height: 500,
+    autoCenter: true,
+    gradients: true,
+    elevation: 50,
+  });
+});
+
+
 
 
