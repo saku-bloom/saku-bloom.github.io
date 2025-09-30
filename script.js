@@ -113,6 +113,35 @@ function typeEffect() {
 typeEffect();
 
 
+// ==================== CERTIFICATES 3D BOOK ==================== 
+// ==================== LIGHTBOX CERTIFICATES ====================
+document.addEventListener("DOMContentLoaded", () => {
+  const certificates = document.querySelectorAll(".certificate img");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const caption = document.getElementById("lightbox-caption");
+  const closeBtn = document.querySelector("#lightbox .close");
+
+  certificates.forEach(cert => {
+    cert.addEventListener("click", () => {
+      lightbox.style.display = "block";
+      lightboxImg.src = cert.src;
+      caption.textContent = cert.nextElementSibling.textContent;
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
+});
+
+
 
 
 
