@@ -33,17 +33,17 @@ body.dark-mode {
 
 /* ==================== NAVBAR ==================== */
 .navbar {
-  background: linear-gradient(145deg, #fdf6ec, #f9e0e7, #f4c2d7);
-  background-size: 200% 200%;
-  animation: parchmentMove 8s ease infinite;
-  border-bottom: 2px solid rgba(164, 92, 107, 0.25);
-  box-shadow: 0 6px 20px rgba(164, 92, 107, 0.2);
+  background: linear-gradient(135deg, #ffe6f0, #f9d3e2, #fce4ec, #f7cad0);
+  background-size: 300% 300%;
+  animation: shinyFlow 12s ease infinite;
+  border-bottom: 2px solid rgba(164, 92, 107, 0.3);
+  box-shadow: 0 6px 25px rgba(212, 138, 150, 0.35);
   position: fixed;
   top: 0; left: 0; width: 100%;
   z-index: 100;
 }
 
-@keyframes parchmentMove {
+@keyframes shinyFlow {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
