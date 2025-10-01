@@ -5,7 +5,7 @@ body {
   color: #4a3c32; 
   scroll-behavior:smooth; 
   overflow-x: hidden;
-  scroll-padding-top: 90px; /* ✅ compense la navbar fixe */
+ 
 } 
 
 body.dark-mode { 
@@ -349,3 +349,11 @@ section h3::after {
   background: radial-gradient(circle, #fff7fa, #ffb6c1);
   box-shadow: 0 0 10px #fff, 0 0 20px #ff9bb5;
 }
+
+
+/* ✅ Scroll spécifique par section */
+#home { scroll-margin-top: 0; }         /* Home pile en haut */
+#skills { scroll-margin-top: 90px; }    /* Skills compense navbar */
+#projet { scroll-margin-top: 110px; }   /* Projet descend un peu plus */
+#certificats { scroll-margin-top: 90px; } 
+#contact { scroll-margin-top: 90px; }
