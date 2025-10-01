@@ -32,16 +32,18 @@ body.dark-mode {
 .dark-toggle:hover { background: #d17aa8; }
 
 /* ==================== NAVBAR ==================== */
-.navbar { 
-  background-color: rgba(255,255,255,0.9); 
-  backdrop-filter: blur(6px); 
-  transition: all 0.4s ease; 
-  z-index: 100; 
-  position: fixed;  /* ✅ navbar reste visible */
-  top: 0; 
-  left: 0; 
-  width: 100%; 
+.navbar {
+  background: linear-gradient(135deg, #f9e0e7 0%, #fdf6ec 50%, #f4c2d7 100%);
+  box-shadow: 0 4px 15px rgba(164, 92, 107, 0.2);
+  border-bottom: 2px solid rgba(164, 92, 107, 0.3);
+  transition: all 0.4s ease;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
+
 .navbar-brand { 
   font-family: 'Playfair Display', serif; 
   font-size: 1.5rem; 
