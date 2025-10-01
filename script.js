@@ -114,63 +114,74 @@ typeEffect();
 
 
 // ==================== CERTIFICATES 3D BOOK ==================== 
-// ==================== GALAXY AVEC EXPLOSION D'ÉTOILES ====================
-function openGalaxy() {
+// ==================== GALAXY AVEC EXPLOSION + SON + TOGGLE ====================
+let galaxyOpen = false; // État actuel (fermé au début)
+const cosmicSound = new Audio("/assets/sounds/cosmic.mp3"); 
+cosmicSound.volume = 0.5; // Volume doux
+
+function toggleGalaxy() {
   const sphere = document.querySelector(".galaxy-sphere");
   const constellation = document.getElementById("constellation");
 
-  // Création du conteneur d’étoiles
-  const starContainer = document.createElement("div");
-  starContainer.classList.add("star-explosion");
-  document.body.appendChild(starContainer);
+  if (!galaxyOpen) {
+    // --- OUVERTURE ---
+    galaxyOpen = true;
 
-  // Position du centre de la sphère
-  const rect = sphere.getBoundingClientRect();
-  const centerX = rect.left + rect.width / 2;
-  const centerY = rect.top + rect.height / 2 + window.scrollY;
+    // Jouer le son
+    cosmicSound.currentTime = 0;
+    cosmicSound.play();
 
-  // Générer plusieurs étoiles
-  for (let i = 0; i < 25; i++) {
-    const star = document.createElement("span");
-    star.classList.add("star");
+    // Création du conteneur d’étoiles
+    const starContainer = document.createElement("div");
+    starContainer.classList.add("star-explosion");
+    document.body.appendChild(starContainer);
 
-    // Position initiale = centre
-    star.style.left = centerX + "px";
-    star.style.top = centerY + "px";
-    starContainer.appendChild(star);
+    for (let i = 0; i < 25; i++) {
+      const star = document.createElement("span");
+      star.classList.add("star");
+      star.style.left = sphere.offsetLeft + sphere.offsetWidth / 2 + "px";
+      star.style.top = sphere.offsetTop + sphere.offsetHeight / 2 + "px";
+      starContainer.appendChild(star);
 
-    // Direction aléatoire
-    const angle = Math.random() * 2 * Math.PI;
-    const distance = 80 + Math.random() * 120;
-    const x = Math.cos(angle) * distance;
-    const y = Math.sin(angle) * distance;
+      const angle = Math.random() * 2 * Math.PI;
+      const distance = 80 + Math.random() * 120;
+      const x = Math.cos(angle) * distance;
+      const y = Math.sin(angle) * distance;
 
-    // Animation des étoiles
-    star.animate([
-      { transform: `translate(0, 0) scale(1)`, opacity: 1 },
-      { transform: `translate(${x}px, ${y}px) scale(0.3)`, opacity: 0 }
-    ], {
-      duration: 1000 + Math.random() * 500,
-      easing: "ease-out",
-      fill: "forwards"
-    });
-  }
+      star.animate([
+        { transform: `translate(0, 0) scale(1)`, opacity: 1 },
+        { transform: `translate(${x}px, ${y}px) scale(0.3)`, opacity: 0 }
+      ], {
+        duration: 1000 + Math.random() * 500,
+        easing: "ease-out",
+        fill: "forwards"
+      });
+    }
 
-  // Supprimer les étoiles après animation + montrer la constellation
-  setTimeout(() => {
-    starContainer.remove();
-
-    // Disparition de la sphère
-    sphere.style.opacity = "0";
-    sphere.style.transform = "scale(0.5)";
     setTimeout(() => {
-      sphere.style.display = "none";
-      // Apparition de la constellation
-      constellation.style.display = "flex";
-      constellation.classList.add("show");
-    }, 600);
-  }, 1500);
+      starContainer.remove();
+      sphere.style.opacity = "0";
+      sphere.style.transform = "scale(0.5)";
+      setTimeout(() => {
+        sphere.style.display = "none";
+        constellation.style.display = "flex";
+        constellation.classList.add("show");
+      }, 600);
+    }, 1500);
+
+  } else {
+    // --- FERMETURE ---
+    galaxyOpen = false;
+
+    constellation.classList.remove("show");
+    constellation.style.display = "none";
+
+    // Réafficher la sphère avec petite animation
+    const sphere = document.querySelector(".galaxy-sphere");
+    sphere.style.display = "flex";
+    setTimeout(() => {
+      sphere.style.opacity = "1";
+      sphere.style.transform = "scale(1)";
+    }, 100);
+  }
 }
-
-
-
