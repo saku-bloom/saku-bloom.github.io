@@ -142,3 +142,20 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+// ======== OUVRIR LA GALAXIE ========
+function openGalaxy() {
+  const sphere = document.querySelector(".galaxy-sphere");
+  const constellation = document.getElementById("constellation");
+
+  // Disparition de la sphère magique
+  sphere.style.opacity = "0";
+  sphere.style.transform = "scale(0.5)";
+  setTimeout(() => {
+    sphere.style.display = "none";
+    // Apparition de la constellation
+    constellation.style.display = "flex";
+    constellation.classList.add("show");
+  }, 600);
+}
+
+
