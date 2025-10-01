@@ -142,20 +142,57 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// ======== OUVRIR LA GALAXIE ========
+// ==================== GALAXY AVEC EXPLOSION D'ÉTOILES ====================
 function openGalaxy() {
   const sphere = document.querySelector(".galaxy-sphere");
   const constellation = document.getElementById("constellation");
 
-  // Disparition de la sphère magique
-  sphere.style.opacity = "0";
-  sphere.style.transform = "scale(0.5)";
+  // Création du conteneur d’étoiles
+  const starContainer = document.createElement("div");
+  starContainer.classList.add("star-explosion");
+  document.body.appendChild(starContainer);
+
+  // Générer plusieurs étoiles
+  for (let i = 0; i < 25; i++) {
+    const star = document.createElement("span");
+    star.classList.add("star");
+    // Position = centre de la sphère
+    star.style.left = sphere.offsetLeft + sphere.offsetWidth / 2 + "px";
+    star.style.top = sphere.offsetTop + sphere.offsetHeight / 2 + "px";
+    starContainer.appendChild(star);
+
+    // Direction aléatoire
+    const angle = Math.random() * 2 * Math.PI;
+    const distance = 80 + Math.random() * 120;
+    const x = Math.cos(angle) * distance;
+    const y = Math.sin(angle) * distance;
+
+    // Animation des étoiles
+    star.animate([
+      { transform: `translate(0, 0) scale(1)`, opacity: 1 },
+      { transform: `translate(${x}px, ${y}px) scale(0.3)`, opacity: 0 }
+    ], {
+      duration: 1000 + Math.random() * 500,
+      easing: "ease-out",
+      fill: "forwards"
+    });
+  }
+
+  // Supprimer les étoiles après animation + montrer la constellation
   setTimeout(() => {
-    sphere.style.display = "none";
-    // Apparition de la constellation
-    constellation.style.display = "flex";
-    constellation.classList.add("show");
-  }, 600);
+    starContainer.remove();
+
+    // Disparition de la sphère
+    sphere.style.opacity = "0";
+    sphere.style.transform = "scale(0.5)";
+    setTimeout(() => {
+      sphere.style.display = "none";
+      // Apparition de la constellation
+      constellation.style.display = "flex";
+      constellation.classList.add("show");
+    }, 600);
+  }, 1500);
 }
+
 
 
