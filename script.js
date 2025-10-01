@@ -142,40 +142,50 @@ function toggleGalaxy() {
       const x = Math.cos(angle) * distance;
       const y = Math.sin(angle) * distance;
 
-      star.animate([
-        { transform: `translate(0, 0) scale(1)`, opacity: 1 },
-        { transform: `translate(${x}px, ${y}px) scale(0.3)`, opacity: 0 }
-      ], {
-        duration: 1000 + Math.random() * 500,
-        easing: "ease-out",
-        fill: "forwards"
-      });
+      star.animate(
+        [
+          { transform: `translate(0, 0) scale(1)`, opacity: 1 },
+          { transform: `translate(${x}px, ${y}px) scale(0.3)`, opacity: 0 }
+        ],
+        {
+          duration: 800 + Math.random() * 400,
+          easing: "ease-out",
+          fill: "forwards"
+        }
+      );
     }
 
+    // Transition disparition sphère + apparition constellation
     setTimeout(() => {
       starContainer.remove();
       sphere.style.opacity = "0";
       sphere.style.transform = "scale(0.5)";
       setTimeout(() => {
         sphere.style.display = "none";
+
+        // Apparition constellation fluide
         constellation.style.display = "flex";
-        constellation.classList.add("show");
-      }, 600);
-    }, 1500);
+        setTimeout(() => {
+          constellation.classList.add("show");
+        }, 50);
+      }, 300);
+    }, 800);
 
   } else {
     // --- FERMETURE ---
     galaxyOpen = false;
 
     constellation.classList.remove("show");
-    constellation.style.display = "none";
-
-    // Réafficher la sphère avec petite animation
-    sphere.style.display = "flex";
     setTimeout(() => {
-      sphere.style.opacity = "1";
-      sphere.style.transform = "scale(1)";
-    }, 100);
+      constellation.style.display = "none";
+
+      // Réafficher la sphère avec animation
+      sphere.style.display = "flex";
+      setTimeout(() => {
+        sphere.style.opacity = "1";
+        sphere.style.transform = "scale(1)";
+      }, 50);
+    }, 400);
   }
 }
 
@@ -195,13 +205,15 @@ window.addEventListener("scroll", () => {
     const sphere = document.querySelector(".galaxy-sphere");
 
     constellation.classList.remove("show");
-    constellation.style.display = "none";
-
-    sphere.style.display = "flex";
     setTimeout(() => {
-      sphere.style.opacity = "1";
-      sphere.style.transform = "scale(1)";
-    }, 100);
+      constellation.style.display = "none";
+      sphere.style.display = "flex";
+      setTimeout(() => {
+        sphere.style.opacity = "1";
+        sphere.style.transform = "scale(1)";
+      }, 50);
+    }, 400);
   }
 });
+
 
