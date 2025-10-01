@@ -114,34 +114,6 @@ typeEffect();
 
 
 // ==================== CERTIFICATES 3D BOOK ==================== 
-// ==================== LIGHTBOX CERTIFICATES ====================
-document.addEventListener("DOMContentLoaded", () => {
-  const certificates = document.querySelectorAll(".certificate img");
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const caption = document.getElementById("lightbox-caption");
-  const closeBtn = document.querySelector("#lightbox .close");
-
-  certificates.forEach(cert => {
-    cert.addEventListener("click", () => {
-      lightbox.style.display = "block";
-      lightboxImg.src = cert.src;
-      caption.textContent = cert.nextElementSibling.textContent;
-    });
-  });
-
-  closeBtn.addEventListener("click", () => {
-    lightbox.style.display = "none";
-  });
-
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
-      lightbox.style.display = "none";
-    }
-  });
-});
-
-
 // ==================== GALAXY AVEC EXPLOSION D'ÉTOILES ====================
 function openGalaxy() {
   const sphere = document.querySelector(".galaxy-sphere");
@@ -152,13 +124,19 @@ function openGalaxy() {
   starContainer.classList.add("star-explosion");
   document.body.appendChild(starContainer);
 
+  // Position du centre de la sphère
+  const rect = sphere.getBoundingClientRect();
+  const centerX = rect.left + rect.width / 2;
+  const centerY = rect.top + rect.height / 2 + window.scrollY;
+
   // Générer plusieurs étoiles
   for (let i = 0; i < 25; i++) {
     const star = document.createElement("span");
     star.classList.add("star");
-    // Position = centre de la sphère
-    star.style.left = sphere.offsetLeft + sphere.offsetWidth / 2 + "px";
-    star.style.top = sphere.offsetTop + sphere.offsetHeight / 2 + "px";
+
+    // Position initiale = centre
+    star.style.left = centerX + "px";
+    star.style.top = centerY + "px";
     starContainer.appendChild(star);
 
     // Direction aléatoire
