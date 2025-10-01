@@ -114,10 +114,8 @@ typeEffect();
 
 
 // ==================== CERTIFICATES 3D BOOK ==================== 
-// ==================== GALAXY AVEC EXPLOSION + SON + TOGGLE ====================
+// ==================== GALAXY AVEC EXPLOSION + TOGGLE ====================
 let galaxyOpen = false; // État actuel (fermé au début)
-const cosmicSound = new Audio("/assets/sounds/cosmic.mp3"); 
-cosmicSound.volume = 0.5; // Volume doux
 
 function toggleGalaxy() {
   const sphere = document.querySelector(".galaxy-sphere");
@@ -126,10 +124,6 @@ function toggleGalaxy() {
   if (!galaxyOpen) {
     // --- OUVERTURE ---
     galaxyOpen = true;
-
-    // Jouer le son
-    cosmicSound.currentTime = 0;
-    cosmicSound.play();
 
     // Création du conteneur d’étoiles
     const starContainer = document.createElement("div");
@@ -177,7 +171,6 @@ function toggleGalaxy() {
     constellation.style.display = "none";
 
     // Réafficher la sphère avec petite animation
-    const sphere = document.querySelector(".galaxy-sphere");
     sphere.style.display = "flex";
     setTimeout(() => {
       sphere.style.opacity = "1";
@@ -185,3 +178,30 @@ function toggleGalaxy() {
     }, 100);
   }
 }
+
+// ==================== AUTO-FERMETURE SUR SCROLL ====================
+window.addEventListener("scroll", () => {
+  const certificatesSection = document.getElementById("certificates");
+  const rect = certificatesSection.getBoundingClientRect();
+
+  // Vérifie si la section est visible à l'écran
+  const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+  if (!isVisible && galaxyOpen) {
+    // Forcer la fermeture si on quitte la section
+    galaxyOpen = false;
+
+    const constellation = document.getElementById("constellation");
+    const sphere = document.querySelector(".galaxy-sphere");
+
+    constellation.classList.remove("show");
+    constellation.style.display = "none";
+
+    sphere.style.display = "flex";
+    setTimeout(() => {
+      sphere.style.opacity = "1";
+      sphere.style.transform = "scale(1)";
+    }, 100);
+  }
+});
+
