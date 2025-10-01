@@ -115,9 +115,16 @@
 
 <!-- ===== MUR DE CADRES INTERACTIFS ===== -->
 <!-- ===== GALAXY CERTIFICATES ===== -->
-<section class="galaxy">
+<section id="certificates">
   <h2 class="title">🌌 Mes Certificats</h2>
-  <div class="galaxy-container">
+
+  <!-- ⚡ Sphère magique fermée -->
+  <div class="galaxy-sphere" onclick="openGalaxy()">
+    <p>✨ Clique pour révéler ✨</p>
+  </div>
+
+  <!-- 🌠 Constellation (cachée au départ) -->
+  <div class="constellation" id="constellation">
     
     <div class="certificate" style="--i:0">
       <img src="certificates/SOUTENANCE.jpeg" alt="Certificat 1">
@@ -132,23 +139,23 @@
     <div class="certificate" style="--i:2">
       <img src="certificates/ASF.jpg" alt="Certificat 3">
       <p>Python Advanced</p>
-    </div> <!-- 🔹 il manquait cette fermeture -->
+    </div>
     
     <div class="certificate" style="--i:3">
       <img src="certificates/label.jpg" alt="Certificat 4">
       <p>Diplôme</p>
     </div>
 
-     <div class="certificate" style="--i:4">
+    <div class="certificate" style="--i:4">
       <img src="certificates/Lycee.jpg" alt="Certificat 5">
       <p>Diplôme</p>
     </div>
     
-   <div class="certificate" style="--i:5">
+    <div class="certificate" style="--i:5">
       <img src="certificates/FAC.jpg" alt="Certificat 6">
       <p>Diplôme</p>
     </div>
-    
+
   </div>
 </section>
 
