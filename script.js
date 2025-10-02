@@ -217,3 +217,27 @@ window.addEventListener("scroll", () => {
 });
 
 
+
+// ==================== NAVBAR SMOOTH SCROLL WITH OFFSET ====================
+(function() {
+  const navbarHeight = document.querySelector(".navbar").offsetHeight;
+
+  document.querySelectorAll(".navbar a[href^='#']").forEach(link => {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute("href");
+      const target = document.querySelector(targetId);
+
+      if (target) {
+        const targetPosition = target.offsetTop - navbarHeight + 5; 
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth"
+        });
+      }
+    });
+  });
+})();
+
+
