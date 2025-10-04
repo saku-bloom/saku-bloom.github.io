@@ -114,72 +114,63 @@ typeEffect();
 
 
 // ==================== CERTIFICATES 3D BOOK ==================== 
-// ==================== GALAXY AVEC EXPLOSION + TOGGLE ====================
-let galaxyOpen = false; // État actuel (fermé au début)
+let galaxyOpen = false;
 
 function toggleGalaxy() {
   const sphere = document.querySelector(".galaxy-sphere");
   const constellation = document.getElementById("constellation");
 
   if (!galaxyOpen) {
-    // --- OUVERTURE ---
     galaxyOpen = true;
 
-    // Création du conteneur d’étoiles
     const starContainer = document.createElement("div");
     starContainer.classList.add("star-explosion");
     document.body.appendChild(starContainer);
 
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 40; i++) {
       const star = document.createElement("span");
       star.classList.add("star");
-      star.style.left = sphere.offsetLeft + sphere.offsetWidth / 2 + "px";
-      star.style.top = sphere.offsetTop + sphere.offsetHeight / 2 + "px";
+      const rect = sphere.getBoundingClientRect();
+      star.style.left = rect.left + rect.width / 2 + "px";
+      star.style.top = rect.top + rect.height / 2 + "px";
       starContainer.appendChild(star);
 
       const angle = Math.random() * 2 * Math.PI;
-      const distance = 80 + Math.random() * 120;
+      const distance = 100 + Math.random() * 200;
       const x = Math.cos(angle) * distance;
       const y = Math.sin(angle) * distance;
 
       star.animate(
         [
           { transform: `translate(0, 0) scale(1)`, opacity: 1 },
-          { transform: `translate(${x}px, ${y}px) scale(0.3)`, opacity: 0 }
+          { transform: `translate(${x}px, ${y}px) scale(0.2)`, opacity: 0 }
         ],
         {
-          duration: 800 + Math.random() * 400,
+          duration: 1200 + Math.random() * 400,
           easing: "ease-out",
           fill: "forwards"
         }
       );
     }
 
-    // Transition disparition sphère + apparition constellation
     setTimeout(() => {
       starContainer.remove();
       sphere.style.opacity = "0";
       sphere.style.transform = "scale(0.5)";
       setTimeout(() => {
         sphere.style.display = "none";
-
-        // Apparition constellation fluide
         constellation.style.display = "flex";
         setTimeout(() => {
           constellation.classList.add("show");
         }, 50);
-      }, 300);
-    }, 800);
+      }, 400);
+    }, 1000);
 
   } else {
-    // --- FERMETURE ---
     galaxyOpen = false;
-
     constellation.classList.remove("show");
     setTimeout(() => {
       constellation.style.display = "none";
-
-      // Réafficher la sphère avec animation
       sphere.style.display = "flex";
       setTimeout(() => {
         sphere.style.opacity = "1";
@@ -188,6 +179,7 @@ function toggleGalaxy() {
     }, 400);
   }
 }
+
 
 // ==================== AUTO-FERMETURE SUR SCROLL ====================
 window.addEventListener("scroll", () => {
