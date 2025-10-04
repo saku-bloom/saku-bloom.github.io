@@ -351,10 +351,3 @@ section h3::after {
 }
 
 
-/* ✅ Scroll spécifique par section */
-#home { scroll-margin-top: 0; }         /* Home pile en haut */
-#skills { scroll-margin-top: 90px; }  
-#about { scroll-margin-top: 150px; }
-#projet { scroll-margin-top: 250px; }   /* Projet descend un peu plus */
-#certificats { scroll-margin-top: 90px; } 
-#contact { scroll-margin-top: 90px; }
