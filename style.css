@@ -252,7 +252,7 @@ section h3::after {
   transform: scale(1.1);
 }
 
-/* ==================== GALLERY MOSAÏQUE ==================== */
+
 /* ==================== LUNE MAGIQUE VINTAGE 🌙 ==================== */
 .moon-magic {
   position: relative;
@@ -265,15 +265,20 @@ section h3::after {
     inset -10px -10px 20px rgba(255, 255, 255, 0.7),
     inset 10px 10px 25px rgba(210, 150, 170, 0.5),
     0 0 40px rgba(255, 190, 210, 0.7);
-  animation: moonFloat 5s ease-in-out infinite;
+  animation: moonFloat 5s ease-in-out infinite, moonRotate 40s linear infinite;
   cursor: pointer;
-  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  transition: transform 0.6s ease, box-shadow 0.6s ease, background 2s ease;
   overflow: hidden;
 }
 
 @keyframes moonFloat {
   0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(3deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes moonRotate {
+  0% { background-position: 30% 30%; }
+  100% { background-position: 70% 70%; }
 }
 
 /* --- Halo autour de la Lune --- */
