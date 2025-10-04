@@ -117,7 +117,7 @@ typeEffect();
 let galaxyOpen = false;
 
 function toggleGalaxy() {
-  const sphere = document.querySelector(".galaxy-sphere");
+  const sphere = document.querySelector(".magic-book");
   const constellation = document.getElementById("constellation");
 
   if (!galaxyOpen) {
