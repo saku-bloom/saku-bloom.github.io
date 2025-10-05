@@ -116,19 +116,21 @@
 
 
 <!-- =========================================== GALAXY CERTIFICATES ================================================ -->
-<section id="certificates">
+<section id="certificates" class="certificates-section">
   <h2 class="title vintage-title">🌙 Vintage Moon of Knowledge 🌙</h2>
 
-  <!-- 🌕 Lune ancienne magique -->
-  <div class="moon-magic" onclick="toggleGalaxy()">
-    <div class="moon-shade"></div>
-    <div class="moon-crater"></div>
-    <div class="moon-crater small"></div>
-    <div class="moon-crater tiny"></div>
-    <p class="moon-text">“Whisper to awaken me...”</p>
+  <!-- 🌕 Lune magique -->
+  <div class="moon-container">
+    <div class="moon-magic" id="magicMoon" onclick="toggleGalaxy()">
+      <div class="moon-shade"></div>
+      <div class="moon-crater"></div>
+      <div class="moon-crater small"></div>
+      <div class="moon-crater tiny"></div>
+      <p class="moon-text">“Whisper to awaken me...”</p>
+    </div>
   </div>
 
-  <!-- 🌌 Constellation des certificats -->
+  <!-- 🌌 Constellation -->
   <div class="constellation" id="constellation">
     <div class="certificate" style="--i:0">
       <img src="certificates/SOUTENANCE.jpeg" alt="Certificat 1">
@@ -160,8 +162,6 @@
     </div>
   </div>
 </section>
-
-  
 
   <!-- Contact Section -->
   <section id="contact">
