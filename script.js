@@ -186,15 +186,13 @@ window.addEventListener("scroll", () => {
   const certificatesSection = document.getElementById("certificates");
   const rect = certificatesSection.getBoundingClientRect();
 
-  // Vérifie si la section est visible à l'écran
   const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
 
   if (!isVisible && galaxyOpen) {
-    // Forcer la fermeture si on quitte la section
     galaxyOpen = false;
 
     const constellation = document.getElementById("constellation");
-    const sphere = document.querySelector(".galaxy-sphere");
+    const sphere = document.querySelector(".moon-magic");
 
     constellation.classList.remove("show");
     setTimeout(() => {
@@ -207,7 +205,6 @@ window.addEventListener("scroll", () => {
     }, 400);
   }
 });
-
 
 
 // ==================== NAVBAR SMOOTH SCROLL WITH OFFSET ====================
@@ -241,22 +238,15 @@ function updateMoonColor() {
   if (!moon) return;
 
   if (hour >= 6 && hour < 12) {
-    // Matin 🌸 (rose clair et doux)
     moon.style.background = "radial-gradient(circle at 30% 30%, #fff7fb, #f9d4e4 60%, #f3b8ca 90%)";
   } else if (hour >= 12 && hour < 18) {
-    // Après-midi ☀️ (blanc nacré)
     moon.style.background = "radial-gradient(circle at 30% 30%, #ffffff, #f2d6e4 60%, #e2b3c5 90%)";
   } else if (hour >= 18 && hour < 21) {
-    // Soir doré 🌆
     moon.style.background = "radial-gradient(circle at 30% 30%, #fff3e1, #f7c7c0 60%, #e69aa9 90%)";
   } else {
-    // Nuit 🌙 (rose perle et lavande)
     moon.style.background = "radial-gradient(circle at 30% 30%, #f8e9f2, #e2b3c9 60%, #b88aaa 90%)";
   }
 }
 
-// Met à jour au chargement + toutes les 10 minutes
 updateMoonColor();
 setInterval(updateMoonColor, 600000);
-
-
