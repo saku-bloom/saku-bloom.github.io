@@ -3,9 +3,8 @@ body {
   font-family: 'Raleway', sans-serif; 
   background: linear-gradient(135deg, #f9e0e7, #fdf6ec);
   color: #4a3c32; 
-  scroll-behavior:smooth; 
+  scroll-behavior: smooth; 
   overflow-x: hidden;
- 
 } 
 
 body.dark-mode { 
@@ -68,7 +67,7 @@ body.dark-mode {
 
 /* ==================== HERO ==================== */
 .hero { 
-  padding: 140px 20px; /* ✅ ajusté pour navbar fixe */
+  padding: 140px 20px;
   text-align: center; 
   position: relative; 
   z-index: 10; 
@@ -101,16 +100,16 @@ body.dark-mode {
 .social a { margin: 0 12px; font-size: 1.5em; color: #a45c6b; transition: transform 0.3s, color 0.3s; }
 .social a:hover { color: #4a3c32; transform: scale(1.2); }
 
-/* ==================== SECTIONS STYLE ==================== */
+/* ==================== SECTIONS ==================== */
 section {
   padding: 80px 20px;
-  margin: 100px auto; /* ✅ plus d’air entre les sections */
+  margin: 40px auto;
   max-width: 1000px;
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease-out;
   background: transparent; 
-  scroll-margin-top: 100px; /* ✅ compense le scroll pour la navbar */
+  scroll-margin-top: 100px;
 }
 section.visible {
   opacity: 1;
@@ -135,133 +134,13 @@ section h3::after {
   border-radius: 2px;
 }
 
-/* ==================== CURSOR TYPING ==================== */
-.cursor { display: inline-block; margin-left: 6px; color: #a45c6b; font-weight: 700; opacity: 1; animation: blink 1s steps(1) infinite; }
-@keyframes blink { 50% { opacity: 0 } }
-
-/* ==================== PETALS ==================== */
-.petal-container { position: fixed; inset: 0; pointer-events: none; z-index: 2; overflow: hidden; }
-.petal { position: absolute; top: -10vh; font-size: 28px; opacity: 0.95; transform-origin: center; will-change: transform, opacity; user-select: none; animation-name: fall; animation-timing-function: linear; animation-iteration-count: infinite; }
-@keyframes fall { 0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; } 10% { opacity: 1; } 100% { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
-
-@media (max-width: 600px) { .hero { padding: 100px 10px; } .hero img { width: 120px; height: 120px; } .petal { font-size: 20px; } }
-
-/* ==================== SKILLS CIRCLES ==================== */
-.skills-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 50px;
-  max-width: 900px;
-  margin: 0 auto 120px; /* ✅ centrage + espace bas */
-  padding: 20px;
-}
-.skill-item { text-align: center; transition: transform 0.3s ease; }
-.skill-item:hover { transform: scale(1.08); }
-.skill-circle {
-  width: 140px;
-  height: 140px;
-  margin: 0 auto;
-  border-radius: 50%;
-  border: 6px solid transparent;
-  background: linear-gradient(#fff, #fff) padding-box,
-              linear-gradient(135deg, #d48a96, #f9e0e7, #a45c6b) border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #a45c6b;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1),
-              inset 0 0 20px rgba(212, 138, 150, 0.3);
-  transition: all 0.4s ease;
-}
-.skill-circle:hover {
-  box-shadow: 0 8px 25px rgba(164, 92, 107, 0.4),
-              inset 0 0 25px rgba(212, 138, 150, 0.5);
-  transform: rotate(3deg) scale(1.1);
-}
-.skill-item p {
-  margin-top: 12px;
-  font-weight: 600;
-  color: #4a3c32;
-  font-family: 'Raleway', sans-serif;
-}
-/* 📱 Responsive */
-@media (max-width: 768px) {
-  .skills-container { gap: 30px; max-width: 600px; }
-  .skill-circle { width: 110px; height: 110px; font-size: 0.95rem; }
-}
-@media (max-width: 480px) {
-  .skills-container { gap: 25px; max-width: 400px; }
-  .skill-circle { width: 90px; height: 90px; font-size: 0.85rem; }
-  .skill-item p { font-size: 0.9rem; }
-}
-
-/* ==================== CONTACT ==================== */
-.contact-container {
-  display:flex; justify-content:space-around; flex-wrap:wrap; gap:40px; margin-top:40px;
-}
-.contact-card {
-  flex:1; min-width:280px;
-  text-align:left;
-  background:#fff; padding:25px;
-  border-radius:15px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-
-/* ==================== FOLLOW ICONS ==================== */
-.follow-icons a {
-  background: #f9e0e7;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  margin: 5px;
-  font-size: 22px;
-  color: #4a3c32;
-  transition: all 0.3s ease;
-}
-.follow-icons a:hover {
-  background: #4a3c32;
-  color: #fff;
-  transform: scale(1.1);
-}
-
-/* ==================== BACK TO TOP ==================== */
-#backToTop {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: none;
-  width: 40px;
-  height: 50px;
-  background-color: #f39ac7;
-  color: white;
-  border: none;
-  font-size: 22px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  border-radius: 50%; 
-  transition: background-color 0.3s, transform 0.3s;
-  z-index: 1000;
-}
-#backToTop:hover {
-  background-color: #d48a96;
-  transform: scale(1.1);
-}
-
-
-/* ==================== LUNE MAGIQUE VINTAGE 🌙 ==================== */
-/* === SECTION CENTRÉE === */
+/* ==================== CERTIFICATES - MOON ==================== */
 .certificates-section {
   text-align: center;
-  padding: 100px 20px;
+  padding: 80px 20px;
+  margin: 40px auto 0 !important;
   position: relative;
 }
-
-/* === TITRE === */
 .vintage-title {
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
@@ -269,155 +148,97 @@ section h3::after {
   color: #b06b82;
   letter-spacing: 2px;
   text-shadow: 0 0 12px #f8d7e1, 0 0 25px #f3b4c5;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   animation: titleGlow 5s ease-in-out infinite alternate;
 }
 @keyframes titleGlow {
   from { text-shadow: 0 0 12px #f8d7e1, 0 0 25px #f3b4c5; }
-  to { text-shadow: 0 0 20px #ffd9e2, 0 0 45px #ffc1d6; }
+  to { text-shadow: 0 0 20px #ffd1dc, 0 0 40px #f7a1b2; }
 }
-
-/* === LUNE MAGIQUE === */
 .moon-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
-.moon-magic {
-  position: relative;
-  width: 180px;
-  height: 180px;
+.moon {
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle at 30% 30%, #fff7f9, #d4a5b2, #a45c6b);
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #fff9f4, #f5d2d9 60%, #d8a7b4 95%);
-  box-shadow: 0 0 60px rgba(255, 200, 210, 0.8),
-              inset 0 0 25px rgba(255, 240, 245, 0.5);
+  box-shadow: 0 0 25px #f8d7e1, inset 0 0 30px rgba(255, 255, 255, 0.6);
+  position: relative;
+  animation: floatMoon 3s ease-in-out infinite alternate;
   cursor: pointer;
-  overflow: hidden;
-  animation: gentleFloat 6s ease-in-out infinite;
-  transition: all 0.8s ease;
 }
-.moon-magic:hover {
-  transform: scale(1.05) rotate(-2deg);
-  box-shadow: 0 0 80px #ffe0eb,
-              0 0 120px #ffbcd4,
-              inset 0 0 35px #fff8f9;
+@keyframes floatMoon {
+  from { transform: translateY(0); }
+  to { transform: translateY(-12px); }
 }
-
-.moon-shade {
+.moon::before {
+  content: "✨ Touch me ✨";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(ellipse at 30% 40%, rgba(210,170,180,0.3), transparent 70%);
-  border-radius: 50%;
-  z-index: 1;
-}
-.moon-crater {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(180,130,150,0.25);
-  box-shadow: inset 0 0 5px rgba(100,60,70,0.4);
-  z-index: 2;
-}
-.moon-crater { top: 40%; left: 60%; width: 25px; height: 25px; }
-.moon-crater.small { top: 25%; left: 30%; width: 18px; height: 18px; }
-.moon-crater.tiny { top: 65%; left: 45%; width: 10px; height: 10px; }
-
-@keyframes gentleFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-/* --- TEXTE SUR LA LUNE --- */
-.moon-text {
-  position: absolute;
-  bottom: 35%;
   width: 100%;
   text-align: center;
+  bottom: -35px;
   font-family: 'Playfair Display', serif;
-  font-style: italic;
-  color: #6b3c4c;
   font-size: 1rem;
-  text-shadow: 0 0 6px #fff0f4, 0 0 18px #ffdbe8;
-  animation: whisperGlow 4s ease-in-out infinite alternate;
-  pointer-events: none;
-  z-index: 3;
-}
-@keyframes whisperGlow {
-  0%, 100% { opacity: 0.8; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.05); }
-}
-
-/* === CONSTELLATION === */
-.constellation {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  opacity: 0;
-  transform: scale(0.8);
-  pointer-events: none;
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.constellation.show {
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: all;
-}
-.certificate {
-  width: 220px;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(40px) scale(0.8);
-  transition: transform 0.6s ease, opacity 0.6s ease;
-}
-.constellation.show .certificate {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  transition-delay: calc(var(--i) * 0.25s);
-}
-.certificate img {
-  width: 100%;
-  border-radius: 15px;
-  border: 3px solid #ffd9e2;
-  box-shadow: 0 6px 15px rgba(255, 150, 170, 0.4),
-              inset 0 0 25px rgba(255, 240, 245, 0.6);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.certificate:hover img {
-  transform: scale(1.08) rotate(-2deg);
-  box-shadow: 0 10px 25px rgba(255, 150, 170, 0.6),
-              inset 0 0 35px rgba(255, 255, 255, 0.8);
-}
-.certificate p {
-  margin-top: 10px;
-  font-size: 1.1rem;
-  font-style: italic;
   color: #a45c6b;
+  text-shadow: 0 0 6px #fff1f7;
 }
 
-.certificates-section {
-  margin-bottom: 30px !important; /* ✅ réduit l’écart sous la lune magique */
+/* ==================== CONTACT ==================== */
+#contact {
+  margin-top: 40px !important;
+  padding-top: 40px;
+}
+.contact-container {
+  text-align: center;
+}
+.contact-container a {
+  color: #a45c6b;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.contact-container a:hover {
+  color: #d48a96;
 }
 
+/* ==================== FOOTER ==================== */
+footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 0.9rem;
+  color: #6b5b58;
+  background: #f9e0e7;
+  border-top: 1px solid rgba(164, 92, 107, 0.2);
+}
 
-/* --- Étoiles autour de la Lune --- */
-.star-explosion {
+/* ==================== BACK TO TOP ==================== */
+#backToTop {
   position: fixed;
-  inset: 0;
-  pointer-events: none;
-}
-.star {
-  position: absolute;
-  width: 6px;
-  height: 6px;
+  bottom: 25px;
+  right: 25px;
+  background: #d48a96;
+  color: white;
+  border: none;
+  padding: 12px 15px;
   border-radius: 50%;
-  background: radial-gradient(circle, #fff, #ffbcd4);
-  box-shadow: 0 0 10px #fff, 0 0 20px #ff9bb5;
+  cursor: pointer;
+  font-size: 18px;
+  display: none;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+#backToTop:hover {
+  transform: translateY(-5px);
 }
 
-
+/* ==================== ANIMATIONS ==================== */
+@keyframes titleGlow {
+  0% { text-shadow: 0 0 10px #f8d7e1, 0 0 20px #f3b4c5; }
+  100% { text-shadow: 0 0 20px #ffd1dc, 0 0 40px #f7a1b2; }
+}
