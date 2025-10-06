@@ -400,6 +400,10 @@ section h3::after {
   color: #a45c6b;
 }
 
+.certificates-section {
+  margin-bottom: 30px !important; /* ✅ réduit l’écart sous la lune magique */
+}
+
 
 /* --- Étoiles autour de la Lune --- */
 .star-explosion {
