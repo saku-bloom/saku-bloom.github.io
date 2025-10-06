@@ -1,12 +1,55 @@
 /* ==================== GLOBAL STYLES ==================== */
-body { 
-  font-family: 'Raleway', sans-serif; 
-  background: linear-gradient(135deg, #f9e0e7, #fdf6ec);
-  color: #4a3c32; 
-  scroll-behavior:smooth; 
-  overflow-x: hidden;
- 
-} 
+/* 🌸 Thème Princesse Vintage Magique 🌸 */
+body {
+  font-family: 'Playfair Display', 'Parisienne', 'Great Vibes', serif;
+  font-weight: 400;
+  color: #6b3648;
+  background-color: #fff8fa;
+  letter-spacing: 0.5px;
+  scroll-behavior: smooth;
+}
+
+/* Titres majestueux 👑 */
+h1, h2, h3, h4 {
+  font-family: 'Cinzel Decorative', 'Playfair Display', serif;
+  color: #a55c75;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+/* Sous-titres, paragraphes, liens 🌷 */
+p, li, a, span, button {
+  font-family: 'Parisienne', 'Playfair Display', cursive;
+  font-size: 1.05rem;
+  color: #7b4458;
+}
+
+/* Ajuste aussi la navbar pour garder la cohérence magique ✨ */
+.navbar a {
+  font-family: 'Cinzel Decorative', 'Playfair Display', serif;
+  color: #8b4c62 !important;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #d77fa1 !important;
+}
+
+/* Petites décorations de texte (facultatif mais très joli 💫) */
+h1::first-letter, h2::first-letter {
+  font-size: 130%;
+  color: #d77fa1;
+}
+
+/* Titres stylisés sur fond clair */
+section h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #9a5470;
+}
+
 
 body.dark-mode { 
   background: #121212;
