@@ -419,3 +419,28 @@ section h3::after {
   background: radial-gradient(circle, #fff, #ffbcd4);
   box-shadow: 0 0 10px #fff, 0 0 20px #ff9bb5;
 }
+
+
+/* === Correction : supprime l'espace vide quand la lune est fermée === */
+.constellation {
+  position: relative;
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+  transition: opacity 0.8s ease, transform 0.8s ease, max-height 0.8s ease;
+  max-height: 0; /* empêche le vide quand fermée */
+  overflow: hidden;
+}
+
+.constellation.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: all;
+  max-height: 2000px; /* permet d'afficher les photos */
+}
+
