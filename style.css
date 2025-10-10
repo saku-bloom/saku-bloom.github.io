@@ -571,42 +571,6 @@ section h3::after {
   50% { opacity: 1; transform: scale(1.2); }
 }
 
-/* === 🌙 MODE MOBILE : défilement horizontal des certificats === */
-@media (max-width: 768px) {
-  .constellation {
-    flex-wrap: nowrap;              /* les cartes restent sur une seule ligne */
-    overflow-x: auto;               /* permet de scroller horizontalement */
-    overflow-y: hidden;             /* bloque le scroll vertical */
-    scroll-snap-type: x mandatory;  /* effet d'accroche doux */
-    -webkit-overflow-scrolling: touch;
-    justify-content: flex-start;    /* aligner à gauche */
-    padding: 15px;
-    gap: 20px;
-  }
-
-  .certificate {
-    flex: 0 0 80%;                  /* chaque image prend ~80% de la largeur de l’écran */
-    scroll-snap-align: center;      /* effet d’accroche au centre */
-    transition: transform 0.4s ease, opacity 0.4s ease;
-  }
-
-  .certificate img {
-    width: 100%;
-    border-radius: 18px;
-  }
-
-  /* un léger effet de profondeur */
-  .certificate:not(:first-child) {
-    margin-left: 10px;
-  }
-
-  /* bonus : petite lueur quand on glisse */
-  .constellation::-webkit-scrollbar {
-    display: none; /* cache la barre de défilement */
-  }
-}
-
-
 /* ================================ Correction : supprime l'espace vide quand la lune est fermée ===================== */
 .constellation {
   position: relative;
