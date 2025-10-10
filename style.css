@@ -43,18 +43,13 @@ h1, h2, h3, h4 {
 }
 
 /* Sous-titres, paragraphes, liens 🌷 */
-p, li, span {
-  font-family: 'Playfair Display', serif;
+p, li, a, span, button {
+  font-family: 'Parisienne', 'Playfair Display', cursive;
   font-size: 1.1rem;
-  color: #5a2a3a;
-  line-height: 1.6;
-}
-
-a, button {
-  font-family: 'Parisienne', cursive;
-  color: #8b2f4b;
+  color: #4a1427;
   text-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
 }
+
 
 
 /* Ajuste aussi la navbar pour garder la cohérence magique ✨ */
