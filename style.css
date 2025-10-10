@@ -44,9 +44,22 @@ h1, h2, h3, h4 {
 
 /* Sous-titres, paragraphes, liens 🌷 */
 
-p, li, a, span, button { font-family: 'Parisienne', 'Playfair Display', cursive; 
-                        font-size: 1.05rem; 
-                        color: #7b4458; }
+p, li, a, span, button {
+  font-family: 'Parisienne', 'Playfair Display', cursive;
+  font-size: 1.25rem; /* 🌸 légèrement plus grand */
+  color: #6a2a40;
+  letter-spacing: 0.6px;
+  line-height: 1.8;
+  text-shadow: 0 0 3px rgba(255, 240, 245, 0.9),
+               0 0 6px rgba(255, 190, 210, 0.4);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* ✨ petit effet d’enchantement au survol */
+a:hover, button:hover {
+  color: #a45c6b;
+  text-shadow: 0 0 8px rgba(255, 200, 220, 0.8);
+}
 
 
 
