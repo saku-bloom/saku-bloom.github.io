@@ -548,6 +548,11 @@ section h3::after {
   border-radius: 50%;
   background: radial-gradient(circle, #fff8cc, #ffd966); /* 🌕 doré clair */
   box-shadow: 0 0 12px #ffe58a, 0 0 25px #ffdf70, 0 0 40px rgba(255, 215, 100, 0.8);
+  animation: fall linear infinite, twinkle 2s ease-in-out infinite;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
 }
 
 
