@@ -7,16 +7,14 @@ body {
   background-color: #fff8fa;
   letter-spacing: 0.5px;
   scroll-behavior: smooth;
-  cursor: url('images/wand_cursor.png'), auto;
+
   background-image: url('images/paper_texture_light.png');
   background-size: cover;
   background-attachment: fixed;
   
 }
 
-a:hover, button:hover {
-  cursor: url('images/spark_cursor.png'), pointer;
-}
+
 
 section {
   background: rgba(255, 255, 255, 0.75);
@@ -83,8 +81,10 @@ body.dark-mode {
   color: #eee;
 }
 
-/* ==================== DARK MODE TOGGLE ==================== */
-/* === 🌙 Bouton Dark Mode === */
+
+
+/* ========================================== DARK MODE TOGGLE ==================================== */
+
 .dark-toggle {
   position: fixed;
   top: 15px;
@@ -108,7 +108,9 @@ body.dark-mode {
   box-shadow: 0 0 15px rgba(243, 154, 199, 0.6);
 }
 
-/* === ⬆ Bouton Back to Top === */
+
+
+/* ===================================== ⬆ Bouton Back to Top =================================== */
 #backToTop {
   position: fixed;
   bottom: 20px;
@@ -145,7 +147,7 @@ body.dark-mode {
   to { transform: translateY(0); opacity: 1; }
 }
 
-/* === 🌙 Mode Sombre === */
+/* ================================== 🌙 Mode Sombre ================================= */
 body.dark-mode .dark-toggle {
   background: linear-gradient(135deg, #333, #555);
   color: #f9d1e0;
@@ -175,7 +177,7 @@ body.dark-mode #backToTop {
 }
 
 
-/* ==================== NAVBAR ==================== */
+/* ======================================== NAVBAR ========================================== */
 .navbar {
   background: linear-gradient(145deg, #fdf6ec, #f9e0e7, #f4c2d7);
   background-size: 200% 200%;
@@ -210,7 +212,9 @@ body.dark-mode #backToTop {
 }
 .nav-link:hover::after { width: 100%; }
 
-/* ==================== HERO ==================== */
+
+
+/* ============================================= HERO =========================================== */
 .hero { 
   padding: 140px 20px; /* ✅ ajusté pour navbar fixe */
   text-align: center; 
@@ -245,7 +249,9 @@ body.dark-mode #backToTop {
 .social a { margin: 0 12px; font-size: 1.5em; color: #a45c6b; transition: transform 0.3s, color 0.3s; }
 .social a:hover { color: #4a3c32; transform: scale(1.2); }
 
-/* ==================== SECTIONS STYLE ==================== */
+
+
+/* =============================================== SECTIONS STYLE ======================================== */
 section {
   padding: 80px 20px;
   margin: 100px auto; /* ✅ plus d’air entre les sections */
@@ -279,18 +285,20 @@ section h3::after {
   border-radius: 2px;
 }
 
-/* ==================== CURSOR TYPING ==================== */
+/* =========================================== CURSOR TYPING ============================================ */
 .cursor { display: inline-block; margin-left: 6px; color: #a45c6b; font-weight: 700; opacity: 1; animation: blink 1s steps(1) infinite; }
 @keyframes blink { 50% { opacity: 0 } }
 
-/* ==================== PETALS ==================== */
+/* ============================================ PETALS ========================================================== */
 .petal-container { position: fixed; inset: 0; pointer-events: none; z-index: 2; overflow: hidden; }
 .petal { position: absolute; top: -10vh; font-size: 28px; opacity: 0.95; transform-origin: center; will-change: transform, opacity; user-select: none; animation-name: fall; animation-timing-function: linear; animation-iteration-count: infinite; }
 @keyframes fall { 0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; } 10% { opacity: 1; } 100% { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
 
-@media (max-width: 600px) { .hero { padding: 100px 10px; } .hero img { width: 120px; height: 120px; } .petal { font-size: 20px; } }
+@media (max-width: 600px) { 
+  .hero { padding: 100px 10px; }
+  .hero img { width: 120px; height: 120px; } .petal { font-size: 20px; } }
 
-/* ==================== SKILLS CIRCLES ==================== */
+/* ================================ SKILLS CIRCLES ================================================== */
 .skills-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -341,7 +349,7 @@ section h3::after {
   .skill-item p { font-size: 0.9rem; }
 }
 
-/* ==================== CONTACT ==================== */
+/* ========================================= CONTACT ====================================== */
 .contact-container {
   display:flex; justify-content:space-around; flex-wrap:wrap; gap:40px; margin-top:40px;
 }
@@ -353,7 +361,7 @@ section h3::after {
   box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* ==================== FOLLOW ICONS ==================== */
+/* =========================================== FOLLOW ICONS ====================================== */
 .follow-icons a {
   background: #f9e0e7;
   border-radius: 50%;
@@ -375,7 +383,7 @@ section h3::after {
 
 
 
-/* ==================== LUNE MAGIQUE VINTAGE 🌙 ==================== */
+/* ===================================== LUNE MAGIQUE VINTAGE 🌙 =============================================== */
 /* === SECTION CENTRÉE === */
 .certificates-section {
   text-align: center;
@@ -383,7 +391,7 @@ section h3::after {
   position: relative;
 }
 
-/* === TITRE === */
+/* ====================== TITRE ================== */
 .vintage-title {
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
@@ -399,7 +407,7 @@ section h3::after {
   to { text-shadow: 0 0 20px #ffd9e2, 0 0 45px #ffc1d6; }
 }
 
-/* === LUNE MAGIQUE === */
+/* ==================== LUNE MAGIQUE ================ */
 .moon-container {
   display: flex;
   justify-content: center;
@@ -527,7 +535,7 @@ section h3::after {
 }
 
 
-/* --- Étoiles autour de la Lune --- */
+/* -=================-- Étoiles autour de la Lune -===============-- */
 .star-explosion {
   position: fixed;
   inset: 0;
@@ -538,9 +546,10 @@ section h3::after {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: radial-gradient(circle, #fff, #ffbcd4);
-  box-shadow: 0 0 10px #fff, 0 0 20px #ff9bb5;
+  background: radial-gradient(circle, #fff8cc, #ffd966); /* 🌕 doré clair */
+  box-shadow: 0 0 12px #ffe58a, 0 0 25px #ffdf70, 0 0 40px rgba(255, 215, 100, 0.8);
 }
+
 
 
 /* === Correction : supprime l'espace vide quand la lune est fermée === */
