@@ -562,6 +562,23 @@ section h3::after {
   max-height: 2000px; /* permet d'afficher les photos */
 }
 
+
+.moon-container::before {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(255,192,203,0.2), transparent, rgba(255,240,245,0.3));
+  animation: rotateAura 12s linear infinite;
+  z-index: 0;
+}
+@keyframes rotateAura {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
 .scroll-footer {
   background: url('images/parchment_texture.jpg') center/cover;
   border-top: 2px solid #cbb89b;
