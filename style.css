@@ -20,6 +20,16 @@ section {
   border: 1px solid rgba(212, 138, 150, 0.15);
   border-radius: 20px;
   padding: 60px 30px;
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  filter: blur(6px);
+  transition: all 1.2s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
 }
 
 /* Titres majestueux 👑 */
