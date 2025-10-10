@@ -45,11 +45,12 @@ h1, h2, h3, h4 {
 /* Sous-titres, paragraphes, liens 🌷 */
 
 p, li, a, span, button {
-  font-family: 'Gilda Display', 'Playfair Display', serif;
-  font-size: 1.08rem;
-  color: #6a2f45;
-  letter-spacing: 0.3px;
+  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: #5a1f3b;
+  line-height: 1.6;
 }
+
 
 
 
