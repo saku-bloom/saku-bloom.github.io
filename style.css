@@ -7,11 +7,15 @@ body {
   background-color: #fff8fa;
   letter-spacing: 0.5px;
   scroll-behavior: smooth;
-  
+  cursor: url('images/wand_cursor.png'), auto;
   background-image: url('images/paper_texture_light.png');
   background-size: cover;
   background-attachment: fixed;
   
+}
+
+a:hover, button:hover {
+  cursor: url('images/spark_cursor.png'), pointer;
 }
 
 section {
@@ -563,20 +567,7 @@ section h3::after {
 }
 
 
-.moon-container::before {
-  content: "";
-  position: absolute;
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, rgba(255,192,203,0.2), transparent, rgba(255,240,245,0.3));
-  animation: rotateAura 12s linear infinite;
-  z-index: 0;
-}
-@keyframes rotateAura {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+
 
 
 .scroll-footer {
