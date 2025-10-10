@@ -537,48 +537,24 @@ section h3::after {
 
 /* -=================-- Étoiles autour de la Lune -===============-- */
 
-/* 🌟 Explosion d'étoiles dorées féeriques */
 .star-explosion {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  overflow: hidden;
-  z-index: 9999; /* pour qu’elles passent au-dessus des éléments */
 }
-
 .star {
   position: absolute;
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: radial-gradient(circle, #fff9d6, #ffd966); /* or doux */
-  box-shadow: 
-    0 0 12px #fff6b0, 
-    0 0 25px #ffe58a, 
-    0 0 45px rgba(255, 215, 100, 0.8);
-  opacity: 0;
+  background: radial-gradient(circle, #fff8cc, #ffd966); /* 🌕 doré clair */
+  box-shadow: 0 0 12px #ffe58a, 0 0 25px #ffdf70, 0 0 40px rgba(255, 215, 100, 0.8);
   animation: fall linear infinite, twinkle 2s ease-in-out infinite;
 }
-
-/* 🌠 Chute douce et aléatoire des étoiles */
-@keyframes fall {
-  0% {
-    transform: translateY(-10vh) scale(0.6) rotate(0deg);
-    opacity: 0;
-  }
-  10% { opacity: 1; }
-  100% {
-    transform: translateY(110vh) scale(1.2) rotate(720deg);
-    opacity: 0;
-  }
-}
-
-/* ✨ Scintillement magique */
 @keyframes twinkle {
   0%, 100% { opacity: 0.8; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.3); }
+  50% { opacity: 1; transform: scale(1.2); }
 }
-
 
 
 
