@@ -367,7 +367,7 @@ section h3::after {
   left: 50%;
   transform: translate(-50%, -50%);
   font-weight: bold;
-  color: white; /* 🩶 change en noir si ton fond est clair */
+  color: #fff; /* ou #000 selon ton fond */
   font-size: 1.2rem;
 }
 
