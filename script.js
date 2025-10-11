@@ -276,36 +276,40 @@ function toggleSound() {
     btn.textContent = "🔇";
   }
 }
-// ==================== SKILLS PROGRESS ANIMATION ====================
-// ==================== SKILLS HOVER ANIMATION ====================
+// ==================== SKILL CIRCLE ANIMATION ====================
 document.querySelectorAll('.skill-circle').forEach(circle => {
-  let animation;
+  const progress = circle.querySelector('.progress');
+  const percent = circle.querySelector('.percent');
+  const radius = 45;
+  const circumference = 2 * Math.PI * radius;
   const target = parseInt(circle.dataset.value);
 
   circle.addEventListener('mouseenter', () => {
-    let count = 0;
-    clearInterval(animation);
-    animation = setInterval(() => {
-      if (count < target) {
-        count++;
-        circle.textContent = count + "%";
+    let current = 0;
+    const interval = setInterval(() => {
+      if (current <= target) {
+        percent.textContent = current + "%";
+        const offset = circumference - (current / 100) * circumference;
+        progress.style.strokeDashoffset = offset;
+        current++;
       } else {
-        clearInterval(animation);
+        clearInterval(interval);
       }
-    }, 25);
+    }, 20);
   });
 
   circle.addEventListener('mouseleave', () => {
-    clearInterval(animation);
-    let count = parseInt(circle.textContent);
-    animation = setInterval(() => {
-      if (count > 0) {
-        count--;
-        circle.textContent = count + "%";
+    let current = parseInt(percent.textContent);
+    const interval = setInterval(() => {
+      if (current >= 0) {
+        percent.textContent = current + "%";
+        const offset = circumference - (current / 100) * circumference;
+        progress.style.strokeDashoffset = offset;
+        current--;
       } else {
-        clearInterval(animation);
+        clearInterval(interval);
       }
-    }, 25);
+    }, 15);
   });
 });
 
