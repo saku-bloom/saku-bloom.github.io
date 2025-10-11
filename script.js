@@ -259,3 +259,21 @@ function updateMoonColor() {
 
 updateMoonColor();
 setInterval(updateMoonColor, 600000);
+
+
+// ==================== BOUTON SON ====================
+function toggleSound() {
+  const audio = document.getElementById('felicitation-audio');
+  const btn = document.getElementById('soundToggle');
+
+  if (!audio) return;
+
+  if (audio.muted) {
+    audio.muted = false;
+    btn.textContent = "🔊";
+  } else {
+    audio.muted = true;
+    btn.textContent = "🔇";
+  }
+}
+
