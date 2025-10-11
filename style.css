@@ -361,7 +361,7 @@ section h3::after {
   transition: stroke-dashoffset 1.5s ease;
 }
 
-/* 🎯 Couleur des pourcentages selon le mode clair/sombre */
+
 .skill-circle .percent {
   color: #4a3c32; /* une teinte brun-rosé foncé, visible sur fond clair */
   font-weight: bold;
@@ -369,10 +369,6 @@ section h3::after {
   transition: color 0.3s ease;
 }
 
-/* 🌙 Quand le site passe en mode sombre */
-body.dark-mode .skill-circle .percent {
-  color: #fff;
-}
 
 
 
