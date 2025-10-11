@@ -312,45 +312,84 @@ section h3::after {
   .hero img { width: 120px; height: 120px; } .petal { font-size: 20px; } }
 
 /* ================================ SKILLS CIRCLES ================================================== */
+/* ================================ SKILLS CIRCLES ================================================== */
 .skills-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 50px;
   max-width: 900px;
-  margin: 0 auto 120px; /* ✅ centrage + espace bas */
+  margin: 0 auto 120px;
   padding: 20px;
 }
-.skill-item { text-align: center; transition: transform 0.3s ease; }
-.skill-item:hover { transform: scale(1.08); }
+
+/* Chaque élément */
+.skill-item {
+  text-align: center;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+.skill-item:hover {
+  transform: scale(1.08);
+}
+
+/* Cercle avec animation douce */
 .skill-circle {
   width: 140px;
   height: 140px;
   margin: 0 auto;
   border-radius: 50%;
   border: 6px solid transparent;
-  background: linear-gradient(#fff, #fff) padding-box,
-              linear-gradient(135deg, #d48a96, #f9e0e7, #a45c6b) border-box;
+  background: conic-gradient(
+      rgba(164, 92, 107, 0.8) var(--progress, 0%),
+      rgba(249, 224, 231, 0.4) var(--progress, 0%)
+    )
+    border-box,
+    linear-gradient(#fff, #fff) padding-box;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
-  font-weight: bold;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: #a45c6b;
   box-shadow: 0 6px 15px rgba(0,0,0,0.1),
               inset 0 0 20px rgba(212, 138, 150, 0.3);
-  transition: all 0.4s ease;
+  transition: all 0.5s ease;
 }
 .skill-circle:hover {
   box-shadow: 0 8px 25px rgba(164, 92, 107, 0.4),
               inset 0 0 25px rgba(212, 138, 150, 0.5);
   transform: rotate(3deg) scale(1.1);
 }
+
+/* Titre du skill */
 .skill-item p {
   margin-top: 12px;
   font-weight: 600;
   color: #4a3c32;
-  font-family: 'Cinzel Decorative', 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.5px;
+  font-size: 1rem;
 }
+
+/* Effet d’entrée des cercles */
+.skill-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards;
+}
+.skill-item:nth-child(1) { animation-delay: 0.1s; }
+.skill-item:nth-child(2) { animation-delay: 0.3s; }
+.skill-item:nth-child(3) { animation-delay: 0.5s; }
+.skill-item:nth-child(4) { animation-delay: 0.7s; }
+.skill-item:nth-child(5) { animation-delay: 0.9s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* 📱 Responsive */
 @media (max-width: 768px) {
   .skills-container { gap: 30px; max-width: 600px; }
@@ -361,6 +400,7 @@ section h3::after {
   .skill-circle { width: 90px; height: 90px; font-size: 0.85rem; }
   .skill-item p { font-size: 0.9rem; }
 }
+
 
 /* ========================================= CONTACT ====================================== */
 .contact-container {
