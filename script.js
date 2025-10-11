@@ -277,13 +277,35 @@ function toggleSound() {
   }
 }
 // ==================== SKILLS PROGRESS ANIMATION ====================
-document.addEventListener("DOMContentLoaded", () => {
-  const skillCircles = document.querySelectorAll(".skill-circle");
-  const progressValues = [90, 80, 70, 65, 60]; // pourcentages de tes compétences
+// ==================== SKILLS HOVER ANIMATION ====================
+document.querySelectorAll('.skill-circle').forEach(circle => {
+  let animation;
+  const target = parseInt(circle.dataset.value);
 
-  skillCircles.forEach((circle, i) => {
-    const value = progressValues[i] || 0;
-    circle.style.setProperty("--progress", value + "%");
+  circle.addEventListener('mouseenter', () => {
+    let count = 0;
+    clearInterval(animation);
+    animation = setInterval(() => {
+      if (count < target) {
+        count++;
+        circle.textContent = count + "%";
+      } else {
+        clearInterval(animation);
+      }
+    }, 25);
+  });
+
+  circle.addEventListener('mouseleave', () => {
+    clearInterval(animation);
+    let count = parseInt(circle.textContent);
+    animation = setInterval(() => {
+      if (count > 0) {
+        count--;
+        circle.textContent = count + "%";
+      } else {
+        clearInterval(animation);
+      }
+    }, 25);
   });
 });
 
