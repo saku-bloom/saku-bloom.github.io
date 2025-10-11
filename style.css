@@ -314,13 +314,12 @@ section h3::after {
 /* ================================ SKILLS CIRCLES ================================================== */
 
 .skills-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap; /* ✅ permet qu’ils passent à la ligne sur mobile */
-  gap: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  justify-items: center;
+  gap: 50px;
   max-width: 1000px;
-  margin: 0 auto 120px;
+  margin: 0 auto 100px;
   padding: 20px;
 }
 
@@ -366,19 +365,16 @@ section h3::after {
   transition: stroke-dashoffset 1.5s ease;
 }
 
-/* ✅ Centrage du pourcentage dans le cercle */
 .skill-circle .percent {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #4a3c32; /* brun-rosé foncé, visible sur fond clair */
+  color: #4a3c32;
   font-weight: bold;
   font-size: 1.3rem;
-  transition: color 0.3s ease;
 }
 
-/* ✅ Sur fond sombre, on garde un blanc lisible */
 body.dark-mode .skill-circle .percent {
   color: #fff;
 }
@@ -389,6 +385,33 @@ body.dark-mode .skill-circle .percent {
   font-weight: 500;
 }
 
+/* 🌸 RESPONSIVE */
+@media (max-width: 992px) {
+  .skills-container {
+    grid-template-columns: repeat(3, 1fr); /* ✅ 3 par ligne sur tablette */
+    gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr); /* ✅ 2 par ligne sur mobile */
+    gap: 30px;
+  }
+
+  .skill-circle {
+    width: 110px;
+    height: 110px;
+  }
+
+  .skill-circle .percent {
+    font-size: 1rem;
+  }
+
+  .skill-item p {
+    font-size: 0.9rem;
+  }
+}
 
 
 /* ========================================= CONTACT ====================================== */
