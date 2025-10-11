@@ -615,3 +615,35 @@ section h3::after {
   opacity: 0.8;
 }
 
+
+/* === 🌙 Défilement horizontal sur mobile === */
+@media (max-width: 768px) {
+  #constellation {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+  }
+
+  #constellation::-webkit-scrollbar {
+    display: none;
+  }
+
+  .certificate {
+    flex: 0 0 80%;
+    scroll-snap-align: center;
+    margin: 0 10px;
+    transform: none !important;
+  }
+
+  .certificate img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+  }
+}
+
