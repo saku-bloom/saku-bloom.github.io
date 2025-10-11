@@ -406,7 +406,7 @@ section h3::after {
 
 /* ====================== TITRE ================== */
 .vintage-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', 'Parisienne', 'Great Vibes', serif;;
   font-size: 2.5rem;
   text-align: center;
   color: #b06b82;
