@@ -313,24 +313,6 @@ section h3::after {
 
 /* ================================ SKILLS CIRCLES ================================================== */
 
-.skills-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 50px;
-  max-width: 900px;
-  margin: 0 auto 120px;
-  padding: 20px;
-}
-
-.skill-item {
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.skill-item:hover {
-  transform: scale(1.08);
-}
-
 .skill-circle {
   position: relative;
   width: 140px;
@@ -361,15 +343,25 @@ section h3::after {
   transition: stroke-dashoffset 1.5s ease;
 }
 
-
 .skill-circle .percent {
-  color: #4a3c32; /* une teinte brun-rosé foncé, visible sur fond clair */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #4a3c32; /* mode clair */
   font-weight: bold;
   font-size: 1.2rem;
   transition: color 0.3s ease;
+  z-index: 2;
+  pointer-events: none;
 }
 
-
+/* Mode sombre */
+@media (prefers-color-scheme: dark) {
+  .skill-circle .percent {
+    color: #fff;
+  }
+}
 
 
 /* ========================================= CONTACT ====================================== */
