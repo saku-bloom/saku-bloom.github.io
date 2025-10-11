@@ -627,6 +627,7 @@ section h3::after {
     -webkit-overflow-scrolling: touch;
     padding-bottom: 10px;
     scroll-behavior: smooth;
+    width: 100%;
   }
 
   #constellation::-webkit-scrollbar {
@@ -634,9 +635,9 @@ section h3::after {
   }
 
   .certificate {
-    flex: 0 0 80%;
+    flex: 0 0 85%; /* légèrement plus petit pour mieux tout voir */
     scroll-snap-align: center;
-    margin: 0 10px;
+    margin: 0 8px;
     transform: none !important;
   }
 
@@ -646,4 +647,5 @@ section h3::after {
     border-radius: 15px;
   }
 }
+
 
