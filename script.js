@@ -276,31 +276,64 @@ function toggleSound() {
     btn.textContent = "🔇";
   }
 }
-// ==================== SKILL CIRCLE ANIMATION ====================
-// ==================== SKILLS ANIMATION ON HOVER ====================
-document.querySelectorAll('.skill-circle').forEach(circle => {
-  const progress = circle.querySelector('.progress');
-  const percent = circle.querySelector('.percent');
-  const radius = 45;
-  const circumference = 2 * Math.PI * radius;
-  const target = parseInt(circle.dataset.value);
 
-  let filled = false; // ✅ empêche de rejouer plusieurs fois
 
-  circle.addEventListener('mouseenter', () => {
-    if (filled) return; // si déjà animé, on ne refait pas
-    filled = true;
 
-    let current = 0;
-    const interval = setInterval(() => {
-      if (current <= target) {
-        percent.textContent = current + "%";
-        const offset = circumference - (current / 100) * circumference;
-        progress.style.strokeDashoffset = offset;
-        current++;
-      } else {
-        clearInterval(interval);
+// ==================== SKILLS ANIMATION (hover / touch / click) ====================
+document.addEventListener("DOMContentLoaded", () => {
+  const circles = document.querySelectorAll('.skill-circle');
+
+  circles.forEach(circle => {
+    const progress = circle.querySelector('.progress');
+    const percent = circle.querySelector('.percent');
+    const radius = 45; // doit correspondre au r dans ton SVG
+    const circumference = 2 * Math.PI * radius;
+    const target = parseInt(circle.dataset.value, 10) || 0;
+
+    // Initialisation SVG pour garantir compatibilité
+    if (progress) {
+      progress.style.strokeDasharray = circumference;
+      progress.style.strokeDashoffset = circumference; // vide (0%)
+    }
+
+    let filled = false; // pour que l'animation ne joue qu'une fois
+
+    // fonction d'animation (remplit jusqu'à target)
+    function fillUp() {
+      if (filled) return;
+      filled = true;
+      let current = 0;
+      const stepTime = 18; // vitesse de comptage (ms)
+      const interval = setInterval(() => {
+        if (current <= target) {
+          percent.textContent = current + "%";
+          if (progress) {
+            const offset = circumference - (current / 100) * circumference;
+            progress.style.strokeDashoffset = offset;
+          }
+          current++;
+        } else {
+          clearInterval(interval);
+        }
+      }, stepTime);
+    }
+
+    // déclencheurs compatibles desktop + mobile
+    circle.addEventListener('mouseenter', fillUp);
+    circle.addEventListener('click', fillUp);
+    circle.addEventListener('touchstart', function onTouch(e) {
+      e.preventDefault(); // évite un clic fantôme après touch
+      fillUp();
+    }, { passive: false });
+
+    // optionnel : accessibilité clavier (focus + Enter)
+    circle.setAttribute('tabindex', '0');
+    circle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        fillUp();
       }
-    }, 20);
+    });
   });
 });
+
