@@ -276,4 +276,14 @@ function toggleSound() {
     btn.textContent = "🔇";
   }
 }
+// ==================== SKILLS PROGRESS ANIMATION ====================
+document.addEventListener("DOMContentLoaded", () => {
+  const skillCircles = document.querySelectorAll(".skill-circle");
+  const progressValues = [90, 80, 70, 65, 60]; // pourcentages de tes compétences
+
+  skillCircles.forEach((circle, i) => {
+    const value = progressValues[i] || 0;
+    circle.style.setProperty("--progress", value + "%");
+  });
+});
 
