@@ -669,36 +669,30 @@ body.dark-mode .skill-circle .percent {
 
 
 /* === 🌙 Défilement horizontal sur mobile === */
+/* 📱 Correction spéciale mobile pour la constellation */
 @media (max-width: 768px) {
-  #constellation {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
+  .constellation {
+    flex-wrap: nowrap;            /* toutes les photos sur une seule ligne */
+    overflow-x: auto;             /* permet de défiler horizontalement */
+    overflow-y: visible;
     scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 10px;
-    scroll-behavior: smooth;
-    width: 100%;
-  }
-
-  #constellation::-webkit-scrollbar {
-    display: none;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 10px;
+    max-height: none !important;  /* 🔥 supprime la limite qui cachait des images */
   }
 
   .certificate {
-    flex: 0 0 85%; /* légèrement plus petit pour mieux tout voir */
+    flex: 0 0 auto;
+    min-width: 80%;               /* taille confortable sur mobile */
     scroll-snap-align: center;
-    margin: 0 8px;
-    transform: none !important;
   }
 
-  .certificate img {
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
+  .constellation::-webkit-scrollbar {
+    display: none; /* cache la barre de défilement */
   }
 }
+
 
 
 /* 🎵 Bouton son */
