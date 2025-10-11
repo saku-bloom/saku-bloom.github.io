@@ -280,59 +280,42 @@ function toggleSound() {
 
 
 // ==================== SKILLS ANIMATION (hover / touch / click) ====================
+
 document.addEventListener("DOMContentLoaded", () => {
-  const circles = document.querySelectorAll('.skill-circle');
+  const circles = document.querySelectorAll(".skill-item");
 
-  circles.forEach(circle => {
-    const progress = circle.querySelector('.progress');
-    const percent = circle.querySelector('.percent');
-    const radius = 45; // doit correspondre au r dans ton SVG
+  circles.forEach(item => {
+    const percent = item.dataset.percent;
+    const circle = item.querySelector(".progress");
+    const text = item.querySelector(".percent");
+    const radius = circle.r.baseVal.value;
     const circumference = 2 * Math.PI * radius;
-    const target = parseInt(circle.dataset.value, 10) || 0;
+    let animated = false; // Pour ne pas relancer deux fois
 
-    // Initialisation SVG pour garantir compatibilité
-    if (progress) {
-      progress.style.strokeDasharray = circumference;
-      progress.style.strokeDashoffset = circumference; // vide (0%)
-    }
+    circle.style.strokeDasharray = circumference;
+    circle.style.strokeDashoffset = circumference;
 
-    let filled = false; // pour que l'animation ne joue qu'une fois
+    item.addEventListener("mouseenter", () => {
+      if (animated) return;
+      animated = true;
 
-    // fonction d'animation (remplit jusqu'à target)
-    function fillUp() {
-      if (filled) return;
-      filled = true;
+      // Animation du cercle
+      const offset = circumference - (percent / 100) * circumference;
+      circle.style.transition = "stroke-dashoffset 1.5s ease";
+      circle.style.strokeDashoffset = offset;
+
+      // Animation du texte
       let current = 0;
-      const stepTime = 18; // vitesse de comptage (ms)
-      const interval = setInterval(() => {
-        if (current <= target) {
-          percent.textContent = current + "%";
-          if (progress) {
-            const offset = circumference - (current / 100) * circumference;
-            progress.style.strokeDashoffset = offset;
-          }
+      const increment = () => {
+        if (current < percent) {
           current++;
+          text.textContent = current + "%";
+          requestAnimationFrame(increment);
         } else {
-          clearInterval(interval);
+          text.textContent = percent + "%";
         }
-      }, stepTime);
-    }
-
-    // déclencheurs compatibles desktop + mobile
-    circle.addEventListener('mouseenter', fillUp);
-    circle.addEventListener('click', fillUp);
-    circle.addEventListener('touchstart', function onTouch(e) {
-      e.preventDefault(); // évite un clic fantôme après touch
-      fillUp();
-    }, { passive: false });
-
-    // optionnel : accessibilité clavier (focus + Enter)
-    circle.setAttribute('tabindex', '0');
-    circle.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        fillUp();
-      }
+      };
+      increment();
     });
   });
 });
