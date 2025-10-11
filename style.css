@@ -313,11 +313,34 @@ section h3::after {
 
 /* ================================ SKILLS CIRCLES ================================================== */
 
+.skills-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap; /* ✅ permet qu’ils passent à la ligne sur mobile */
+  gap: 60px;
+  max-width: 1000px;
+  margin: 0 auto 120px;
+  padding: 20px;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: scale(1.08);
+}
+
 .skill-circle {
   position: relative;
   width: 140px;
   height: 140px;
-  margin: 0 auto;
+  margin-bottom: 10px;
 }
 
 .skill-circle svg {
@@ -343,25 +366,29 @@ section h3::after {
   transition: stroke-dashoffset 1.5s ease;
 }
 
+/* ✅ Centrage du pourcentage dans le cercle */
 .skill-circle .percent {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #4a3c32; /* mode clair */
+  color: #4a3c32; /* brun-rosé foncé, visible sur fond clair */
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   transition: color 0.3s ease;
-  z-index: 2;
-  pointer-events: none;
 }
 
-/* Mode sombre */
-@media (prefers-color-scheme: dark) {
-  .skill-circle .percent {
-    color: #fff;
-  }
+/* ✅ Sur fond sombre, on garde un blanc lisible */
+body.dark-mode .skill-circle .percent {
+  color: #fff;
 }
+
+.skill-item p {
+  margin-top: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
 
 
 /* ========================================= CONTACT ====================================== */
