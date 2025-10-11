@@ -277,6 +277,7 @@ function toggleSound() {
   }
 }
 // ==================== SKILL CIRCLE ANIMATION ====================
+// ==================== SKILLS ANIMATION ON HOVER ====================
 document.querySelectorAll('.skill-circle').forEach(circle => {
   const progress = circle.querySelector('.progress');
   const percent = circle.querySelector('.percent');
@@ -284,7 +285,12 @@ document.querySelectorAll('.skill-circle').forEach(circle => {
   const circumference = 2 * Math.PI * radius;
   const target = parseInt(circle.dataset.value);
 
+  let filled = false; // ✅ empêche de rejouer plusieurs fois
+
   circle.addEventListener('mouseenter', () => {
+    if (filled) return; // si déjà animé, on ne refait pas
+    filled = true;
+
     let current = 0;
     const interval = setInterval(() => {
       if (current <= target) {
@@ -297,19 +303,4 @@ document.querySelectorAll('.skill-circle').forEach(circle => {
       }
     }, 20);
   });
-
-  circle.addEventListener('mouseleave', () => {
-    let current = parseInt(percent.textContent);
-    const interval = setInterval(() => {
-      if (current >= 0) {
-        percent.textContent = current + "%";
-        const offset = circumference - (current / 100) * circumference;
-        progress.style.strokeDashoffset = offset;
-        current--;
-      } else {
-        clearInterval(interval);
-      }
-    }, 15);
-  });
 });
-
