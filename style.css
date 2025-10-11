@@ -349,7 +349,7 @@ section h3::after {
   margin-top: 12px;
   font-weight: 600;
   color: #4a3c32;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Cinzel Decorative', 'Playfair Display', serif;
 }
 /* 📱 Responsive */
 @media (max-width: 768px) {
