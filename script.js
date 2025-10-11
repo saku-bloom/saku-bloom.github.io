@@ -178,6 +178,15 @@ function toggleGalaxy() {
       }, 50);
     }, 400);
   }
+
+  // 🌕 Lecture du son magique lors du clic sur la lune
+const audio = document.getElementById('felicitation-audio');
+if (audio && !audio.dataset.played) {
+  audio.currentTime = 0;
+  audio.play().catch(err => console.log('Lecture audio bloquée :', err));
+  audio.dataset.played = "true"; // 🔁 empêche qu'il rejoue à chaque clic
+}
+
 }
 
 
