@@ -456,9 +456,7 @@ body.dark-mode .skill-circle .percent {
   position: relative;
   font-family: 'Cinzel Decorative', serif;
 }
-.certificates-section .certificate p {
-  font-family: 'Great Vibes', cursive;
-}
+
 /* ====================== TITRE ================== */
 .vintage-title {
   font-family: 'Playfair Display', 'Parisienne', 'Great Vibes', serif;;
@@ -593,10 +591,13 @@ body.dark-mode .skill-circle .percent {
 }
 .certificate p {
   margin-top: 10px;
-  font-size: 1.1rem;
-  font-style: italic;
+  font-size: 1.2rem;
+  font-family: 'Great Vibes', cursive;
+  letter-spacing: 0.5px;
   color: #a45c6b;
+  text-shadow: 0 0 8px rgba(255, 235, 240, 0.8);
 }
+
 
 .certificates-section {
   margin-bottom: 30px !important; /* ✅ réduit l’écart sous la lune magique */
