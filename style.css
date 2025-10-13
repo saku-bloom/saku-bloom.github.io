@@ -456,7 +456,9 @@ body.dark-mode .skill-circle .percent {
   position: relative;
   font-family: 'Cinzel Decorative', serif;
 }
-
+.certificates-section .certificate p {
+  font-family: 'Great Vibes', cursive;
+}
 /* ====================== TITRE ================== */
 .vintage-title {
   font-family: 'Playfair Display', 'Parisienne', 'Great Vibes', serif;;
