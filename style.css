@@ -599,6 +599,15 @@ body.dark-mode .skill-circle .percent {
 }
 
 
+/* 🌕 Police magique exclusive à la section des certificats */
+.certificates-section,
+.certificates-section * {
+  font-family: 'Cinzel Decorative', 'Great Vibes', serif !important;
+  color: #7c3f55;
+}
+
+
+
 .certificates-section {
   margin-bottom: 30px !important; /* ✅ réduit l’écart sous la lune magique */
 }
