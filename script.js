@@ -281,42 +281,62 @@ function toggleSound() {
 
 // ==================== SKILLS ANIMATION (hover / touch / click) ====================
 
+// ==================== SKILLS ANIMATION (hover on PC / auto on mobile) ====================
+
 document.addEventListener("DOMContentLoaded", () => {
   const circles = document.querySelectorAll(".skill-item");
+  const isMobile = window.innerWidth <= 768;
+  let animated = false;
 
-  circles.forEach(item => {
+  function animateCircle(item) {
     const percent = item.dataset.percent;
     const circle = item.querySelector(".progress");
     const text = item.querySelector(".percent");
     const radius = circle.r.baseVal.value;
     const circumference = 2 * Math.PI * radius;
-    let animated = false; // Pour ne pas relancer deux fois
 
     circle.style.strokeDasharray = circumference;
     circle.style.strokeDashoffset = circumference;
 
-    item.addEventListener("mouseenter", () => {
-      if (animated) return;
-      animated = true;
+    const offset = circumference - (percent / 100) * circumference;
+    circle.style.transition = "stroke-dashoffset 1.5s ease";
+    circle.style.strokeDashoffset = offset;
 
-      // Animation du cercle
-      const offset = circumference - (percent / 100) * circumference;
-      circle.style.transition = "stroke-dashoffset 1.5s ease";
-      circle.style.strokeDashoffset = offset;
+    // Animation du texte
+    let current = 0;
+    const increment = () => {
+      if (current < percent) {
+        current++;
+        text.textContent = current + "%";
+        requestAnimationFrame(increment);
+      } else {
+        text.textContent = percent + "%";
+      }
+    };
+    increment();
+  }
 
-      // Animation du texte
-      let current = 0;
-      const increment = () => {
-        if (current < percent) {
-          current++;
-          text.textContent = current + "%";
-          requestAnimationFrame(increment);
-        } else {
-          text.textContent = percent + "%";
+  if (isMobile) {
+    // 🪄 Sur mobile → quand la section devient visible
+    const skillsSection = document.getElementById("skills");
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !animated) {
+        animated = true;
+        circles.forEach(item => animateCircle(item));
+      }
+    }, { threshold: 0.4 });
+    observer.observe(skillsSection);
+  } else {
+    // 🖱️ Sur PC → déclenchement au survol
+    circles.forEach(item => {
+      let done = false;
+      item.addEventListener("mouseenter", () => {
+        if (!done) {
+          done = true;
+          animateCircle(item);
         }
-      };
-      increment();
+      });
     });
-  });
+  }
 });
 
