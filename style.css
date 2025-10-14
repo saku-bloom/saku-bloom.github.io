@@ -729,4 +729,37 @@ body.dark-mode .skill-circle .percent {
   box-shadow: 0 0 20px rgba(255, 150, 200, 0.9);
 }
 
+/* === FIX: Skills circles always perfect circles === */
+
+.skill-circle {
+  position: relative;
+  width: 140px;
+  aspect-ratio: 1 / 1; /* garde le cercle parfait */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-circle svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: rotate(-90deg);
+}
+
+@media (max-width: 600px) {
+  .skill-circle {
+    width: 110px;
+    aspect-ratio: 1 / 1;
+  }
+  .skill-circle svg {
+    width: 95%;
+  }
+}
+
+@media (max-width: 400px) {
+  .skill-circle {
+    width: 95px;
+  }
+}
 
